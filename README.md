@@ -1,2 +1,3 @@
 # ProtocolAutoModel-main
 加入RAG的代码
+在data_Process中加入了RAG加工的代码对data中的sentences.jsonl和paragraphs.jsonl加工
