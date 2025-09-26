@@ -1,0 +1,68 @@
+{
+  "subprotocol": "Streams",
+  "role": "sender",
+  "states": [
+    {
+      "name": "Ready",
+      "aliases": [],
+      "enter_hints": [],
+      "exit_hints": [
+        "An endpoint that receives a STOP_SENDING frame MUST send a RESET_STREAM frame if the stream is in the \"Ready\" state.",
+        "A receiver MAY send a STOP_SENDING frame in any state where it has not received a RESET_STREAM frame.",
+        "If the stream is in the \"Recv\" or \"Size Known\" state, the transport SHOULD signal this by sending a STOP_SENDING frame."
+      ],
+      "cites": [
+        "2.4-p328-s65",
+        "2.4-p316-s53",
+        "3.5-p502-s1"
+      ]
+    },
+    {
+      "name": "Send",
+      "aliases": [],
+      "enter_hints": [],
+      "exit_hints": [
+        "An endpoint that receives a STOP_SENDING frame MUST send a RESET_STREAM frame if the stream is in the \"Send\" state."
+      ],
+      "cites": [
+        "2.4-p328-s65"
+      ]
+    },
+    {
+      "name": "Data Sent",
+      "aliases": [],
+      "enter_hints": [],
+      "exit_hints": [
+        "If the stream is in the \"Data Sent\" state, the endpoint MAY defer sending the RESET_STREAM frame."
+      ],
+      "cites": [
+        "2.4-p329-s66"
+      ]
+    },
+    {
+      "name": "Recv",
+      "aliases": [],
+      "enter_hints": [],
+      "exit_hints": [
+        "If the stream is in the \"Recv\" or \"Size Known\" state, the transport SHOULD signal this by sending a STOP_SENDING frame."
+      ],
+      "cites": [
+        "3.5-p502-s1"
+      ]
+    },
+    {
+      "name": "Size Known",
+      "aliases": [],
+      "enter_hints": [
+        "The receiving part of the stream then enters the \"Size Known\" state."
+      ],
+      "exit_hints": [
+        "If the stream is in the \"Recv\" or \"Size Known\" state, the transport SHOULD signal this by sending a STOP_SENDING frame."
+      ],
+      "cites": [
+        "2.4-p301-s38",
+        "3.5-p502-s1"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "subprotocol": "Streams",
+  "roles": [
+    {
+      "name": "endpoint",
+      "capabilities": [
+        "MUST NOT send data on any stream without ensuring tha",
+        "MUST send a RESET_STREAM frame if the stream is in the \"Ready\" or \"Send\" state",
+        "MUST NOT reuse a stream ID within a connection",
+        "MAY defer sending the RESET_STREAM frame un",
+        "MAY treat receipt of different data at the ",
+        "MAY ignore the error code in any RESET_STREAM frames subsequently received for that stream",
+        "SHOULD send a RESET_STREAM frame instead of retransmitting the data",
+        "MUST be able to deliver stream data to an ap",
+        "MAY send a RESET_STREAM as the first frame that ",
+        "SHOULD copy the error code from the STOP_SENDING frame to the RESET_STREAM frame it sends",
+        "SHOULD send a RESET_STREAM frame instead of retrans",
+        "SHOULD respond with an error of type FINAL_SIZ",
+        "MUST NOT wait to receive this signal before advertising addition",
+        "SHOULD send a STREAMS_BLOCKED frame",
+        "MUST NOT send data on a stream at or beyond the final"
+      ],
+      "cites": [
+        "2.1-p225-s8",
+        "2.2-p238-s1",
+        "2.4-p328-s65",
+        "2.1-p207-s4",
+        "2.4-p329-s66",
+        "2.2-p235-s3",
+        "2.4-p331-s68",
+        "2.4-p330-s67",
+        "2.1-p220-s3",
+        "2.4-p287-s24",
+        "3.1-p386-s1",
+        "3.5-p509-s1",
+        "3.5-p508-s4",
+        "3.5-p552-s37",
+        "3.5-p565-s50",
+        "3.5-p563-s48",
+        "3.5-p551-s36"
+      ]
+    },
+    {
+      "name": "sender",
+      "capabilities": [
+        "MUST NOT send a STREAM or STREAM_DATA_BLOCKED frame f",
+        "MUST NOT send any of these frames from a terminal sta",
+        "SHOULD send a STREAM_DATA_BLOCKED or DATA_BLOCKED f",
+        "SHOULD periodically send a STREAM_DATA_BLOCKED or DATA_BLOCKED frame when it has no ack-eliciting packets in flight"
+      ],
+      "cites": [
+        "2.4-p314-s51",
+        "2.4-p313-s50",
+        "3.3-p464-s1",
+        "3.5-p529-s14",
+        "3.5-p531-s16"
+      ]
+    },
+    {
+      "name": "receiver",
+      "capabilities": [
+        "MAY send a STOP_SENDING frame in any state where it has not received a RESET_STREAM frame",
+        "MUST use the final size of the stream to acc"
+      ],
+      "cites": [
+        "2.4-p316-s53",
+        "3.5-p551-s36"
+      ]
+    }
+  ]
+}

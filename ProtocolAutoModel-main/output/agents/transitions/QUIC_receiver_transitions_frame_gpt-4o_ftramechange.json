@@ -1,0 +1,75 @@
+{
+  "subprotocol": "Streams",
+  "role": "receiver",
+  "mode": "mechanisms",
+  "events": [
+    "RESET_STREAM",
+    "STOP_SENDING",
+    "STREAM"
+  ],
+  "transitions": [
+    {
+      "from": "Ready",
+      "event": "STOP_SENDING",
+      "to": "Reset Sent",
+      "guard": "stream is in 'Ready' or 'Send' state",
+      "action": [
+        "send RESET_STREAM frame"
+      ],
+      "normative_strength": "MUST",
+      "inferred": false,
+      "cites": [
+        "2.4-p328-s65"
+      ]
+    },
+    {
+      "from": "Recv",
+      "event": "STOP_SENDING",
+      "to": "Reset Sent",
+      "guard": "stream is in 'Recv' or 'Size Known' state",
+      "action": [
+        "send STOP_SENDING frame"
+      ],
+      "normative_strength": "SHOULD",
+      "inferred": false,
+      "cites": [
+        "3.5-p502-s1"
+      ]
+    },
+    {
+      "from": "Any",
+      "event": "RESET_STREAM",
+      "to": "Reset Recvd",
+      "guard": "stream has not received a RESET_STREAM frame",
+      "action": [
+        "send STOP_SENDING frame"
+      ],
+      "normative_strength": "MAY",
+      "inferred": false,
+      "cites": [
+        "2.4-p316-s53"
+      ]
+    }
+  ],
+  "invariants": [
+    {
+      "name": "StreamDataBlockedHandling",
+      "expr": "receiver MUST NOT wait for STREAM_DATA_BLOCKED before sending MAX_STREAM_DATA",
+      "cites": [
+        "3.5-p537-s22"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "ask": "Clarify conditions for sending STOP_SENDING in states other than 'Recv' or 'Size Known'.",
+      "wanted_sections": [
+        "3.2",
+        "3.5"
+      ],
+      "related_frames": [
+        "STOP_SENDING"
+      ]
+    }
+  ]
+}

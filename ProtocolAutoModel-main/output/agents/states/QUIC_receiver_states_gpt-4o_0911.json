@@ -1,0 +1,33 @@
+{
+  "subprotocol": "Streams",
+  "role": "receiver",
+  "states": [
+    {
+      "name": "Recv",
+      "aliases": [],
+      "enter_hints": [],
+      "exit_hints": [
+        "If the stream is in the \"Recv\" state, the transport SHOULD signal this by sending a STOP_SENDING frame.",
+        "The receiver only sends MAX_STREAM_DATA frames in the \"Recv\" state."
+      ],
+      "cites": [
+        "3.5-p502-s1",
+        "3.3-p468-s1"
+      ]
+    },
+    {
+      "name": "Size Known",
+      "aliases": [],
+      "enter_hints": [
+        "The receiving part of the stream then enters the \"Size Known\" state."
+      ],
+      "exit_hints": [
+        "If the stream is in the \"Size Known\" state, the transport SHOULD signal this by sending a STOP_SENDING frame."
+      ],
+      "cites": [
+        "2.4-p301-s38",
+        "3.5-p502-s1"
+      ]
+    }
+  ]
+}

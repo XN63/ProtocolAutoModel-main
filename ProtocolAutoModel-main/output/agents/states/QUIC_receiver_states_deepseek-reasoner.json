@@ -1,0 +1,40 @@
+{
+  "subprotocol": "Streams",
+  "role": "receiver",
+  "states": [
+    {
+      "name": "Recv",
+      "aliases": [],
+      "enter_hints": [],
+      "exit_hints": [],
+      "cites": [
+        "2.4-p326-s63",
+        "3.2-p433-s1",
+        "3.3-p468-s1"
+      ]
+    },
+    {
+      "name": "Size Known",
+      "aliases": [],
+      "enter_hints": [
+        "enters when the final size of the stream is known"
+      ],
+      "exit_hints": [],
+      "cites": [
+        "2.4-p301-s38",
+        "2.4-p326-s63"
+      ]
+    },
+    {
+      "name": "Data Received",
+      "aliases": [],
+      "enter_hints": [
+        "enters when all data for the stream has been received"
+      ],
+      "exit_hints": [],
+      "cites": [
+        "3.2-p439-s1"
+      ]
+    }
+  ]
+}

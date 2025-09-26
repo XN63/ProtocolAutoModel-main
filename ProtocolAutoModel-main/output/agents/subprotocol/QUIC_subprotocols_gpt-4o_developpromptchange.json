@@ -1,0 +1,104 @@
+{
+  "subprotocols": [
+    {
+      "name": "Streams",
+      "purpose": "Manage data transmission over multiple streams within a single connection.",
+      "key_frames": [
+        "STREAM",
+        "RESET_STREAM",
+        "STOP_SENDING"
+      ],
+      "depends_on": [
+        "Flow Control"
+      ],
+      "boundaries": {
+        "includes": [
+          "2",
+          "3"
+        ],
+        "excludes": [
+          "RFC9001",
+          "RFC9002"
+        ]
+      },
+      "cites": [
+        "2-p191-s1",
+        "2.1-p207-s4",
+        "2.4-p328-s65"
+      ]
+    },
+    {
+      "name": "Flow Control",
+      "purpose": "Regulate the amount of data that can be sent to prevent congestion and ensure fair resource allocation.",
+      "key_frames": [
+        "MAX_DATA",
+        "MAX_STREAM_DATA",
+        "DATA_BLOCKED",
+        "STREAM_DATA_BLOCKED"
+      ],
+      "depends_on": [],
+      "boundaries": {
+        "includes": [
+          "4"
+        ],
+        "excludes": [
+          "RFC9001",
+          "RFC9002"
+        ]
+      },
+      "cites": [
+        "19.9-p5723-s2",
+        "19.10-p5765-s1",
+        "19.12-p5814-s1"
+      ]
+    },
+    {
+      "name": "Frame Types and Formats",
+      "purpose": "Define the structure and usage of different frames for communication in QUIC.",
+      "key_frames": [
+        "STREAM",
+        "MAX_DATA",
+        "MAX_STREAM_DATA",
+        "RESET_STREAM",
+        "STOP_SENDING",
+        "DATA_BLOCKED",
+        "STREAM_DATA_BLOCKED",
+        "STREAMS_BLOCKED",
+        "MAX_STREAMS"
+      ],
+      "depends_on": [],
+      "boundaries": {
+        "includes": [
+          "19"
+        ],
+        "excludes": [
+          "RFC9001",
+          "RFC9002"
+        ]
+      },
+      "cites": [
+        "19-p5395-s1",
+        "19.8-p5695-s2",
+        "19.9-p5723-s2"
+      ]
+    }
+  ],
+  "open_questions": [
+    {
+      "ask": "Clarify the role and dependencies of Connection Management/Migration.",
+      "related_frames": [],
+      "wanted_sections": [
+        "5",
+        "6"
+      ]
+    },
+    {
+      "ask": "Define the scope and dependencies of Connection Closure.",
+      "related_frames": [],
+      "wanted_sections": [
+        "7",
+        "8"
+      ]
+    }
+  ]
+}

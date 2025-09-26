@@ -1,0 +1,123 @@
+{
+  "type": "object",
+  "required": [
+    "subprotocols",
+    "open_questions"
+  ],
+  "properties": {
+    "subprotocols": {
+      "type": "array",
+      "items": [
+        {
+          "name": "Streams",
+          "purpose": "Manage data transmission over multiple streams within a single connection.",
+          "key_frames": [
+            "STREAM",
+            "RESET_STREAM",
+            "STOP_SENDING"
+          ],
+          "depends_on": [
+            "Flow Control"
+          ],
+          "boundaries": {
+            "includes": [
+              "2",
+              "3"
+            ],
+            "excludes": [
+              "RFC9001",
+              "RFC9002"
+            ]
+          },
+          "cites": [
+            "2-p80-s1",
+            "2.1-p86-s1",
+            "2.4-p110-s65"
+          ]
+        },
+        {
+          "name": "Flow Control",
+          "purpose": "Regulate the amount of data that can be sent to prevent congestion.",
+          "key_frames": [
+            "MAX_DATA",
+            "MAX_STREAM_DATA",
+            "DATA_BLOCKED"
+          ],
+          "depends_on": [],
+          "boundaries": {
+            "includes": [
+              "4"
+            ],
+            "excludes": [
+              "RFC9001",
+              "RFC9002"
+            ]
+          },
+          "cites": [
+            "19.9-p1246-s2",
+            "19.10-p1266-s1",
+            "19.12-p1287-s1"
+          ]
+        },
+        {
+          "name": "Connection Management",
+          "purpose": "Handle the lifecycle and state transitions of a QUIC connection.",
+          "key_frames": [
+            "NEW_CONNECTION_ID",
+            "RETIRE_CONNECTION_ID"
+          ],
+          "depends_on": [],
+          "boundaries": {
+            "includes": [
+              "19.15",
+              "19.16"
+            ],
+            "excludes": [
+              "RFC9001",
+              "RFC9002"
+            ]
+          },
+          "cites": [
+            "19.15-p1327-s1",
+            "19.16-p1340-s1"
+          ]
+        },
+        {
+          "name": "Error Handling",
+          "purpose": "Define error codes and mechanisms for handling errors in QUIC.",
+          "key_frames": [],
+          "depends_on": [],
+          "boundaries": {
+            "includes": [
+              "20"
+            ],
+            "excludes": [
+              "RFC9001",
+              "RFC9002"
+            ]
+          },
+          "cites": [
+            "20-p1389-s1",
+            "20.1-p1411-s1"
+          ]
+        }
+      ]
+    },
+    "open_questions": [
+      {
+        "ask": "Clarify the role of security considerations in QUIC subprotocols.",
+        "related_frames": [],
+        "wanted_sections": [
+          "21"
+        ]
+      },
+      {
+        "ask": "Determine the specific frames involved in connection closure.",
+        "related_frames": [],
+        "wanted_sections": [
+          "19"
+        ]
+      }
+    ]
+  }
+}

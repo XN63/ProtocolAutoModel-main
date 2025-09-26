@@ -1,0 +1,62 @@
+{
+  "subprotocols": [
+    {
+      "name": "Stream States",
+      "purpose": "Defines the states and transitions for streams, including sending and receiving states, and permitted frame types.",
+      "key_frames": [
+        "MAX_STREAM_DATA",
+        "STOP_SENDING"
+      ],
+      "depends_on": [
+        "Flow Control"
+      ],
+      "boundaries": {
+        "includes": [
+          "3",
+          "3.1",
+          "3.2",
+          "3.3",
+          "3.4",
+          "3.5"
+        ],
+        "excludes": []
+      },
+      "cites": [
+        "3.1##name-sending-stream-states/para3.1-p120/sent-3.1-p366-s1",
+        "3.1##name-sending-stream-states/para3.1-p130/sent-3.1-p388-s1",
+        "3##name-stream-states/para3-p115/sent-3-p347-s1"
+      ]
+    },
+    {
+      "name": "Flow Control",
+      "purpose": "Manages the amount of data that can be sent and received, ensuring that endpoints do not exceed limits set by peers.",
+      "key_frames": [
+        "MAX_STREAMS"
+      ],
+      "depends_on": [],
+      "boundaries": {
+        "includes": [
+          "4",
+          "4.1",
+          "4.2",
+          "4.3",
+          "4.4",
+          "4.5",
+          "4.6"
+        ],
+        "excludes": []
+      },
+      "cites": [
+        "4.1##name-data-flow-control/para4.1-p176/sent-4.1-p588-s1",
+        "4##name-flow-control/para4-p172/sent-4-p573-s1",
+        "4.1##name-data-flow-control/para4.1-p184/sent-4.1-p604-s1"
+      ]
+    }
+  ],
+  "open_questions": [],
+  "_cites_validation": {
+    "total_cites": 6,
+    "unknown_eids": 0,
+    "empty_cites_items": 0
+  }
+}

@@ -1,0 +1,24 @@
+You are a protocol analysis expert.  
+Given the following RFC9000 corpus context packet, extract all subprotocols (modules) defined in QUIC.
+For each subprotocol/module, provide:
+- name
+- description/purpose (summarize from evidence)
+- order (from toc)
+- dependencies (if mentioned)
+- section and anchor (for traceability)
+
+ContextPacket:
+{protocol_document}
+
+Output the result as a JSON array, each item:
+{{
+  "subprotocol": "Module name",
+  "description": "Purpose and main function",
+  "order": 2,
+  "dependencies": ["other module names"],
+  "section": "2",
+  "anchor": "#name-streams"
+}}
+
+Only use information from the provided context. Do not invent content.  
+If dependencies are not explicit, leave as an empty array.

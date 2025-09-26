@@ -1,0 +1,81 @@
+{
+  "subprotocol": "Streams",
+  "role": "receiver",
+  "mode": "frame_only",
+  "events": [
+    "RESET_STREAM",
+    "STOP_SENDING",
+    "STREAM"
+  ],
+  "transitions": [
+    {
+      "from": "Ready",
+      "event": "STOP_SENDING",
+      "to": "Reset Sent",
+      "guard": "stream is in 'Ready' or 'Send' state",
+      "action": [
+        "send RESET_STREAM frame"
+      ],
+      "normative_strength": "MUST",
+      "inferred": false,
+      "cites": [
+        "2.4-p328-s65"
+      ]
+    },
+    {
+      "from": "Send",
+      "event": "STOP_SENDING",
+      "to": "Reset Sent",
+      "guard": "stream is in 'Ready' or 'Send' state",
+      "action": [
+        "send RESET_STREAM frame"
+      ],
+      "normative_strength": "MUST",
+      "inferred": false,
+      "cites": [
+        "2.4-p328-s65"
+      ]
+    },
+    {
+      "from": "Recv",
+      "event": "STOP_SENDING",
+      "to": "Reset Sent",
+      "guard": "stream is in 'Recv' or 'Size Known' state",
+      "action": [
+        "send STOP_SENDING frame"
+      ],
+      "normative_strength": "SHOULD",
+      "inferred": false,
+      "cites": [
+        "3.5-p502-s1"
+      ]
+    },
+    {
+      "from": "Size Known",
+      "event": "STOP_SENDING",
+      "to": "Reset Sent",
+      "guard": "stream is in 'Recv' or 'Size Known' state",
+      "action": [
+        "send STOP_SENDING frame"
+      ],
+      "normative_strength": "SHOULD",
+      "inferred": false,
+      "cites": [
+        "3.5-p502-s1"
+      ]
+    }
+  ],
+  "invariants": [],
+  "gaps": [
+    {
+      "ask": "Clarify transitions involving STREAM frame reception and its impact on stream states.",
+      "wanted_sections": [
+        "3.2",
+        "3.3"
+      ],
+      "related_frames": [
+        "STREAM"
+      ]
+    }
+  ]
+}

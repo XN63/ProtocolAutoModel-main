@@ -1,0 +1,45 @@
+{
+  "subprotocol": "Streams",
+  "role": "sender",
+  "states": [
+    {
+      "name": "Ready",
+      "aliases": [],
+      "enter_hints": [],
+      "exit_hints": [],
+      "cites": [
+        "2.4-p328-s65"
+      ]
+    },
+    {
+      "name": "Send",
+      "aliases": [],
+      "enter_hints": [],
+      "exit_hints": [],
+      "cites": [
+        "2.4-p328-s65"
+      ]
+    },
+    {
+      "name": "Data Sent",
+      "aliases": [],
+      "enter_hints": [],
+      "exit_hints": [],
+      "cites": [
+        "2.4-p329-s66"
+      ]
+    },
+    {
+      "name": "Reset Sent",
+      "aliases": [],
+      "enter_hints": [
+        "When RESET_STREAM frame is sent"
+      ],
+      "exit_hints": [],
+      "cites": [
+        "2.4-p287-s24",
+        "3.1-p386-s1"
+      ]
+    }
+  ]
+}

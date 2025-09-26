@@ -1,0 +1,83 @@
+{
+  "subprotocols": [
+    {
+      "name": "Streams",
+      "purpose": "Manage bidirectional data streams between peers, including stream creation, prioritization, and data transfer.",
+      "key_frames": [
+        "RESET_STREAM",
+        "STOP_SENDING",
+        "STREAM"
+      ],
+      "depends_on": [
+        "Flow Control"
+      ],
+      "boundaries": {
+        "includes": [
+          "2",
+          "3"
+        ],
+        "excludes": []
+      },
+      "cites": [
+        "2-p80-s1",
+        "2.1-p86-s1",
+        "2.2-p96-s1"
+      ]
+    },
+    {
+      "name": "Flow Control",
+      "purpose": "Regulate the amount of data that can be sent to prevent overwhelming the receiver.",
+      "key_frames": [
+        "DATA_BLOCKED",
+        "MAX_DATA",
+        "MAX_STREAM_DATA",
+        "STREAM_DATA_BLOCKED"
+      ],
+      "depends_on": [],
+      "boundaries": {
+        "includes": [
+          "4"
+        ],
+        "excludes": []
+      },
+      "cites": [
+        "19.10-p1266-s1",
+        "19.12-p1287-s1",
+        "19.9-p1246-s2"
+      ]
+    },
+    {
+      "name": "Connection Management",
+      "purpose": "Handle connection establishment, maintenance, and closure, including error handling.",
+      "key_frames": [
+        "NEW_CONNECTION_ID",
+        "RETIRE_CONNECTION_ID"
+      ],
+      "depends_on": [],
+      "boundaries": {
+        "includes": [
+          "20"
+        ],
+        "excludes": []
+      },
+      "cites": [
+        "20-p1389-s1",
+        "20.1-p1411-s1",
+        "20.2-p1413-s1"
+      ]
+    }
+  ],
+  "open_questions": [
+    {
+      "ask": "Clarify the role of STREAMS_BLOCKED frame in the context of Streams or Flow Control.",
+      "related_frames": [
+        "STREAMS_BLOCKED"
+      ],
+      "wanted_sections": [
+        "2",
+        "4",
+        "19.14"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "subprotocol": "Streams",
+  "role": "sender",
+  "states": [
+    {
+      "name": "Ready",
+      "aliases": [],
+      "enter_hints": [],
+      "exit_hints": [
+        "An endpoint that receives a STOP_SENDING frame MUST send a RESET_STREAM frame if the stream is in the \"Ready\" or \"Send\" state."
+      ],
+      "cites": [
+        "2.4-p328-s65"
+      ]
+    },
+    {
+      "name": "Send",
+      "aliases": [],
+      "enter_hints": [],
+      "exit_hints": [
+        "An endpoint that receives a STOP_SENDING frame MUST send a RESET_STREAM frame if the stream is in the \"Ready\" or \"Send\" state."
+      ],
+      "cites": [
+        "2.4-p328-s65"
+      ]
+    },
+    {
+      "name": "Data Sent",
+      "aliases": [],
+      "enter_hints": [],
+      "exit_hints": [
+        "If the stream is in the \"Data Sent\" state, the endpoint MAY defer sending the RESET_STREAM frame un"
+      ],
+      "cites": [
+        "2.4-p329-s66"
+      ]
+    },
+    {
+      "name": "Reset Sent",
+      "aliases": [],
+      "enter_hints": [
+        "In either case, the endpoint sends a RESET_STREAM frame, which causes the stream to enter the \"Reset Sent\" state."
+      ],
+      "exit_hints": [],
+      "cites": [
+        "2.4-p287-s24"
+      ]
+    }
+  ]
+}

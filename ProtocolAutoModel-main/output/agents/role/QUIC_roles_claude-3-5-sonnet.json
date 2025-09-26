@@ -1,0 +1,56 @@
+{
+  "subprotocol": "Streams",
+  "roles": [
+    {
+      "name": "endpoint",
+      "capabilities": [
+        "MUST NOT reuse stream ID within connection",
+        "MUST NOT send data on any stream without ensuring flow control",
+        "MUST be able to deliver stream data to application",
+        "MUST NOT send data at or beyond final size",
+        "MUST treat receipt of stream ID exceeding limit as connection error",
+        "MAY buffer received out-of-order data",
+        "MAY ignore error code in RESET_STREAM after sending STOP_SENDING"
+      ],
+      "cites": [
+        "2.1-p207-s4",
+        "2.2-p238-s1",
+        "2.1-p220-s3",
+        "3.5-p551-s36",
+        "3.5-p561-s46",
+        "2.2-p230-s2",
+        "2.4-p331-s68"
+      ]
+    },
+    {
+      "name": "sender",
+      "capabilities": [
+        "MUST NOT send STREAM or STREAM_DATA_BLOCKED frame from terminal state",
+        "SHOULD send RESET_STREAM instead of retransmitting lost data",
+        "SHOULD send STREAM_DATA_BLOCKED when flow control limited",
+        "MAY send RESET_STREAM as first frame on stream"
+      ],
+      "cites": [
+        "2.4-p313-s50",
+        "2.4-p330-s67",
+        "3.5-p529-s14",
+        "2.4-p287-s24"
+      ]
+    },
+    {
+      "name": "receiver",
+      "capabilities": [
+        "MAY send STOP_SENDING in any state before receiving RESET_STREAM",
+        "MUST use final size for flow control",
+        "SHOULD treat receipt of data beyond final size as error",
+        "MAY send MAX_STREAM_DATA multiple times"
+      ],
+      "cites": [
+        "2.4-p316-s53",
+        "3.5-p551-s36",
+        "3.5-p553-s38",
+        "3.5-p532-s17"
+      ]
+    }
+  ]
+}

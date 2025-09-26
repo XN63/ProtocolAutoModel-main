@@ -1,0 +1,108 @@
+{
+  "subprotocols": [
+    {
+      "name": "Streams",
+      "purpose": "Defines the concept of streams, their types, states, and operations within QUIC.",
+      "key_frames": [
+        "RESET_STREAM",
+        "STOP_SENDING",
+        "STREAM"
+      ],
+      "depends_on": [],
+      "boundaries": {
+        "includes": [
+          "2",
+          "3"
+        ],
+        "excludes": [
+          "RFC9001",
+          "RFC9002"
+        ]
+      },
+      "cites": [
+        "2-p191-s1",
+        "2.1-p212-s1",
+        "2.4-p264-s1"
+      ]
+    },
+    {
+      "name": "Flow Control",
+      "purpose": "Flow control in QUIC ensures that senders do not overwhelm receivers by sending data excessively or beyond set limits.",
+      "key_frames": [
+        "DATA_BLOCKED",
+        "MAX_DATA",
+        "MAX_STREAMS",
+        "MAX_STREAM_DATA",
+        "STREAM_DATA_BLOCKED"
+      ],
+      "depends_on": [
+        "Streams"
+      ],
+      "boundaries": {
+        "includes": [
+          "19.10",
+          "19.12",
+          "19.13",
+          "19.9",
+          "4"
+        ],
+        "excludes": [
+          "RFC9001",
+          "RFC9002"
+        ]
+      },
+      "cites": [
+        "19.10-p5765-s1",
+        "19.12-p5814-s1",
+        "19.13-p5833-s1",
+        "19.9-p5734-s1",
+        "4#name-flow-control/4-p172/4-p573-s1",
+        "4.1#name-data-flow-control/4.1-p176/4.1-p588-s1",
+        "4.1#name-data-flow-control/4.1-p184/4.1-p604-s1",
+        "4.2#name-increasing-flow-control-lim/4.2-p191/4.2-p624-s1",
+        "4.3#name-flow-control-performance/4.3-p195/4.3-p633-s1",
+        "4.4#name-handling-stream-cancellatio/4.4-p199/4.4-p642-s1",
+        "4.5#name-stream-final-size/4.5-p205/4.5-p667-s1",
+        "4.6#name-controlling-concurrency/4.6-p208/4.6-p686-s1",
+        "4.6#name-controlling-concurrency/4.6-p209/4.6-p689-s2",
+        "4.6#name-controlling-concurrency/4.6-p212/4.6-p695-s1"
+      ]
+    },
+    {
+      "name": "Connection Management",
+      "purpose": "Handles the lifecycle of QUIC connections, including initiation, maintenance, and migration.",
+      "key_frames": [
+        "NEW_CONNECTION_ID",
+        "RETIRE_CONNECTION_ID"
+      ],
+      "depends_on": [],
+      "boundaries": {
+        "includes": [
+          "19.15",
+          "19.16"
+        ],
+        "excludes": [
+          "RFC9001",
+          "RFC9002"
+        ]
+      },
+      "cites": [
+        "19.15-p5898-s1",
+        "19.16-p5926-s1"
+      ]
+    }
+  ],
+  "open_questions": [
+    {
+      "ask": "Which subprotocol includes the MAX_STREAMS and STREAMS_BLOCKED frames?",
+      "related_frames": [
+        "MAX_STREAMS",
+        "STREAMS_BLOCKED"
+      ],
+      "wanted_sections": [
+        "19.11",
+        "19.14"
+      ]
+    }
+  ]
+}

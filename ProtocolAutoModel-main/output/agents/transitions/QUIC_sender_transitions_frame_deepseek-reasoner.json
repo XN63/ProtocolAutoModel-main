@@ -1,0 +1,99 @@
+{
+  "subprotocol": "Streams",
+  "role": "sender",
+  "mode": "frame_only",
+  "events": [
+    "RESET_STREAM",
+    "STOP_SENDING",
+    "STREAM"
+  ],
+  "transitions": [
+    {
+      "from": "Ready",
+      "event": "STOP_SENDING",
+      "to": "Reset Sent",
+      "guard": "stream is in Ready state",
+      "action": [
+        "send RESET_STREAM frame"
+      ],
+      "normative_strength": "MUST",
+      "inferred": true,
+      "cites": [
+        "2.4-p328-s65"
+      ]
+    },
+    {
+      "from": "Send",
+      "event": "STOP_SENDING",
+      "to": "Reset Sent",
+      "guard": "stream is in Send state",
+      "action": [
+        "send RESET_STREAM frame"
+      ],
+      "normative_strength": "MUST",
+      "inferred": true,
+      "cites": [
+        "2.4-p328-s65"
+      ]
+    },
+    {
+      "from": "Init",
+      "event": "RESET_STREAM",
+      "to": "Reset Sent",
+      "guard": "as the first frame for the stream",
+      "action": [
+        "send RESET_STREAM frame"
+      ],
+      "normative_strength": "MAY",
+      "inferred": true,
+      "cites": [
+        "3.1-p386-s1"
+      ]
+    }
+  ],
+  "invariants": [
+    {
+      "name": "No STREAM in Reset Sent or terminal state",
+      "expr": "state in {\"Reset Sent\", terminal} implies not (event == \"STREAM\")",
+      "cites": [
+        "2.4-p314-s51"
+      ]
+    },
+    {
+      "name": "No RESET_STREAM in terminal state",
+      "expr": "state is terminal implies not (event == \"RESET_STREAM\")",
+      "cites": [
+        "2.4-p313-s50"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "ask": "State transitions for sending STREAM frame from various states (e.g., from Ready or Send to Data Sent with FIN bit)",
+      "wanted_sections": [
+        "3.1"
+      ],
+      "related_frames": [
+        "STREAM"
+      ]
+    },
+    {
+      "ask": "State transitions for sending RESET_STREAM frame from states other than Init (e.g., after data loss or in Data Sent state)",
+      "wanted_sections": [
+        "3.1",
+        "3.5"
+      ],
+      "related_frames": [
+        "RESET_STREAM",
+        "STOP_SENDING"
+      ]
+    },
+    {
+      "ask": "Definition of terminal states and transitions involving them",
+      "wanted_sections": [
+        "3.1"
+      ],
+      "related_frames": []
+    }
+  ]
+}

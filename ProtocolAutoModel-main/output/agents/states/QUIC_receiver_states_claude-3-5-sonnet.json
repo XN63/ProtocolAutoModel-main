@@ -1,0 +1,57 @@
+{
+  "subprotocol": "Streams",
+  "role": "receiver",
+  "states": [
+    {
+      "name": "Recv",
+      "aliases": [],
+      "enter_hints": [
+        "Receives STREAM and STREAM_DATA_BLOCKED frames"
+      ],
+      "exit_hints": [
+        "Can exit by sending STOP_SENDING frame if application is no longer interested"
+      ],
+      "cites": [
+        "2.4-p298-s35",
+        "2.4-p326-s63"
+      ]
+    },
+    {
+      "name": "Size Known",
+      "aliases": [],
+      "enter_hints": [
+        "Enters when receiving final size information"
+      ],
+      "exit_hints": [
+        "Can exit by sending STOP_SENDING frame if application is no longer interested"
+      ],
+      "cites": [
+        "2.4-p301-s38",
+        "2.4-p326-s63"
+      ]
+    },
+    {
+      "name": "Data Recvd",
+      "aliases": [],
+      "enter_hints": [
+        "Enters once all data for the stream has been received"
+      ],
+      "exit_hints": [],
+      "cites": [
+        "3.2-p439-s1",
+        "3.2-p446-s1"
+      ]
+    },
+    {
+      "name": "Reset Recvd",
+      "aliases": [],
+      "enter_hints": [
+        "Enters when receiving RESET_STREAM frame"
+      ],
+      "exit_hints": [],
+      "cites": [
+        "2.4-p287-s24"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "subprotocols": [
+    {
+      "name": "Streams",
+      "purpose": "Streams provide a way to send and receive data in a QUIC connection, with each stream being a unidirectional or bidirectional channel.",
+      "key_frames": [
+        "STREAM",
+        "RESET_STREAM",
+        "STOP_SENDING"
+      ],
+      "depends_on": [
+        "Flow Control"
+      ],
+      "boundaries": {
+        "includes": [
+          "2",
+          "3"
+        ],
+        "excludes": [
+          "4",
+          "19"
+        ]
+      },
+      "cites": [
+        "2-p80",
+        "3-p115",
+        "2.4-p110"
+      ]
+    },
+    {
+      "name": "Flow Control",
+      "purpose": "Flow control ensures that a sender does not overwhelm a receiver with data, by limiting the amount of data that can be sent before receiving an acknowledgment.",
+      "key_frames": [
+        "MAX_DATA",
+        "MAX_STREAM_DATA",
+        "DATA_BLOCKED",
+        "STREAM_DATA_BLOCKED"
+      ],
+      "depends_on": [],
+      "boundaries": {
+        "includes": [
+          "4"
+        ],
+        "excludes": [
+          "2",
+          "3",
+          "19"
+        ]
+      },
+      "cites": [
+        "4-p172",
+        "4.1-p176",
+        "4.6-p208"
+      ]
+    },
+    {
+      "name": "Connection Management",
+      "purpose": "Connection management includes the establishment, maintenance, and termination of QUIC connections, including handling of connection IDs and state transitions.",
+      "key_frames": [
+        "NEW_CONNECTION_ID",
+        "RETIRE_CONNECTION_ID",
+        "CONNECTION_CLOSE"
+      ],
+      "depends_on": [],
+      "boundaries": {
+        "includes": [
+          "19.15",
+          "19.16",
+          "19.19"
+        ],
+        "excludes": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "cites": [
+        "19.15-p1327",
+        "19.16-p1340",
+        "19.19-p1373"
+      ]
+    },
+    {
+      "name": "Connection Migration",
+      "purpose": "Connection migration allows a QUIC connection to move between different network paths, ensuring continuity of communication even when the network changes.",
+      "key_frames": [
+        "PATH_CHALLENGE",
+        "PATH_RESPONSE"
+      ],
+      "depends_on": [],
+      "boundaries": {
+        "includes": [
+          "19.17",
+          "19.18"
+        ],
+        "excludes": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "cites": [
+        "19.17-p1351",
+        "19.18-p1362"
+      ]
+    },
+    {
+      "name": "Error Handling",
+      "purpose": "Error handling defines the mechanisms for detecting and responding to errors in QUIC, including the use of error codes and frames to manage connection failures.",
+      "key_frames": [
+        "CONNECTION_CLOSE"
+      ],
+      "depends_on": [],
+      "boundaries": {
+        "includes": [
+          "20"
+        ],
+        "excludes": [
+          "2",
+          "3",
+          "4",
+          "19"
+        ]
+      },
+      "cites": [
+        "20-p1389",
+        "20.1-p1408",
+        "20.2-p1413"
+      ]
+    }
+  ],
+  "open_questions": [
+    {
+      "ask": "What are the key frames and dependencies for the Security Considerations section?",
+      "related_frames": [],
+      "wanted_sections": [
+        "21"
+      ]
+    },
+    {
+      "ask": "What are the key frames and dependencies for the IANA Considerations section?",
+      "related_frames": [],
+      "wanted_sections": [
+        "22"
+      ]
+    }
+  ]
+}

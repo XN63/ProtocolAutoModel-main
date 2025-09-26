@@ -1,0 +1,162 @@
+{
+  "subprotocols": [
+    {
+      "name": "Streams",
+      "purpose": "Defines stream types, identifiers, data sending/receiving, prioritization, and operations such as opening/closing streams.",
+      "key_frames": [
+        "RESET_STREAM",
+        "STOP_SENDING"
+      ],
+      "depends_on": [],
+      "boundaries": {
+        "includes": [
+          "2.1",
+          "2.2",
+          "2.3",
+          "2.4"
+        ],
+        "excludes": []
+      },
+      "cites": [
+        "2-p191-s1",
+        "2.1-p218-s1",
+        "2.2-p240-s1",
+        "2.3-p249-s1",
+        "2.4-p264-s1"
+      ]
+    },
+    {
+      "name": "Frame Types and Formats",
+      "purpose": "Specifies the format and usage of various frame types for control and data transmission in QUIC.",
+      "key_frames": [
+        "DATA_BLOCKED",
+        "MAX_DATA",
+        "MAX_STREAMS",
+        "MAX_STREAM_DATA",
+        "RESET_STREAM",
+        "STOP_SENDING",
+        "STREAM",
+        "STREAMS_BLOCKED",
+        "STREAM_DATA_BLOCKED"
+      ],
+      "depends_on": [],
+      "boundaries": {
+        "includes": [
+          "19",
+          "19.1",
+          "19.10",
+          "19.11",
+          "19.12",
+          "19.13",
+          "19.14",
+          "19.15",
+          "19.16",
+          "19.17",
+          "19.18",
+          "19.19",
+          "19.2",
+          "19.20",
+          "19.21",
+          "19.3",
+          "19.3.1",
+          "19.3.2",
+          "19.4",
+          "19.5",
+          "19.6",
+          "19.7",
+          "19.8",
+          "19.9"
+        ],
+        "excludes": []
+      },
+      "cites": [
+        "19-p5395-s1",
+        "19.1-p5412-s1",
+        "19.2-p5425-s1"
+      ]
+    },
+    {
+      "name": "Error Codes",
+      "purpose": "Defines transport and application error codes for signaling failures in QUIC operations, including connection and stream errors.",
+      "key_frames": [],
+      "depends_on": [],
+      "boundaries": {
+        "includes": [
+          "20",
+          "20.1",
+          "20.2"
+        ],
+        "excludes": []
+      },
+      "cites": [
+        "20-p6067-s1",
+        "20.1-p6124-s1",
+        "20.2-p6129-s1"
+      ]
+    },
+    {
+      "name": "Stream States",
+      "purpose": "Defines states and transitions for sending/receiving streams, specifying permitted frame types in each state.",
+      "key_frames": [
+        "MAX_STREAM_DATA",
+        "STOP_SENDING",
+        "STREAM",
+        "STREAM_DATA_BLOCKED"
+      ],
+      "depends_on": [],
+      "boundaries": {
+        "includes": [
+          "3",
+          "3.1",
+          "3.2",
+          "3.3",
+          "3.4",
+          "3.5"
+        ],
+        "excludes": []
+      },
+      "cites": [
+        "3.2-p433-s1",
+        "3.3-p468-s1",
+        "anchor:#name-stream-states"
+      ]
+    },
+    {
+      "name": "Flow Control",
+      "purpose": "Manages data flow limits on streams and connection, handles stream cancellation, and enforces concurrency controls.",
+      "key_frames": [
+        "MAX_DATA",
+        "MAX_STREAMS",
+        "MAX_STREAM_DATA",
+        "RESET_STREAM"
+      ],
+      "depends_on": [],
+      "boundaries": {
+        "includes": [
+          "4",
+          "4.1",
+          "4.2",
+          "4.3",
+          "4.4",
+          "4.5",
+          "4.6"
+        ],
+        "excludes": []
+      },
+      "cites": [
+        "4.1-p588-s1",
+        "4.4-p639-s1",
+        "anchor:#name-flow-control"
+      ]
+    }
+  ],
+  "open_questions": [
+    {
+      "ask": "Section 19 defines frame types. Evidence gaps prevent comprehensive frame-module mapping.",
+      "related_frames": [],
+      "wanted_sections": [
+        "19"
+      ]
+    }
+  ]
+}

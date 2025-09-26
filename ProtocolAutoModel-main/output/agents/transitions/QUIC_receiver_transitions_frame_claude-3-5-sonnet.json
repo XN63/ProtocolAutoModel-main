@@ -1,0 +1,87 @@
+{
+  "subprotocol": "Streams",
+  "role": "receiver",
+  "mode": "frame_only",
+  "events": [
+    "RESET_STREAM",
+    "STOP_SENDING",
+    "STREAM"
+  ],
+  "transitions": [
+    {
+      "from": "Recv",
+      "event": "STREAM",
+      "to": "Size Known",
+      "guard": "frame has FIN bit set",
+      "action": [
+        "record final size"
+      ],
+      "normative_strength": "MUST",
+      "inferred": false,
+      "cites": [
+        "3.2-p436-s1"
+      ]
+    },
+    {
+      "from": "Recv",
+      "event": "RESET_STREAM",
+      "to": "Reset Recvd",
+      "guard": "",
+      "action": [
+        "discard stream data"
+      ],
+      "normative_strength": "MAY",
+      "inferred": false,
+      "cites": [
+        "2.4-p309-s46"
+      ]
+    },
+    {
+      "from": "Recv",
+      "event": "STOP_SENDING",
+      "to": "Recv",
+      "guard": "stream not terminated",
+      "action": [
+        "send RESET_STREAM"
+      ],
+      "normative_strength": "SHOULD",
+      "inferred": false,
+      "cites": [
+        "3.5-p502-s1",
+        "2.4-p316-s53"
+      ]
+    },
+    {
+      "from": "Size Known",
+      "event": "STOP_SENDING",
+      "to": "Size Known",
+      "guard": "stream not terminated",
+      "action": [
+        "send RESET_STREAM"
+      ],
+      "normative_strength": "SHOULD",
+      "inferred": false,
+      "cites": [
+        "3.5-p502-s1",
+        "2.4-p316-s53"
+      ]
+    }
+  ],
+  "invariants": [
+    {
+      "name": "recv_state_frames",
+      "expr": "In Recv state, endpoint receives STREAM and STREAM_DATA_BLOCKED frames",
+      "cites": [
+        "3.2-p433-s1"
+      ]
+    },
+    {
+      "name": "max_stream_data_sending",
+      "expr": "MAX_STREAM_DATA frames only sent in Recv state",
+      "cites": [
+        "3.3-p468-s1"
+      ]
+    }
+  ],
+  "gaps": []
+}

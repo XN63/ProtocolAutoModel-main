@@ -1,0 +1,38 @@
+【工作流】
+A. 候选模块：从 toc + evidence 导言/目的/规范句中归纳主要子协议（Streams、Flow Control、Connection Management/Migration、Connection-level 传输、Connection Closure 等，前提是有证据）。
+B. purpose：用导言/目的句凝练（≤200字符），附 1–3 条 cites。
+C. 边界与依赖：boundaries.includes（小节号集合）、excludes（明确不含主题，如 RFC9001/9002）；depends_on（如 Streams 依赖 Flow Control）。
+D. key_frames：把与该模块相关的帧名（仅名称）列出；证据可来自 §19.* 的帧定义或正文提及。
+E. 覆盖检查：若 frame_evidence 里有帧未被任何模块收录，加入 open_questions。
+F.cites 必须是字符串数组，仅包含来自 cites_pool 的 eid。禁止使用 section/anchor 文本；禁止自造 eid
+【输出 JSON Schema】
+{
+  "type":"object",
+  "required":["subprotocols","open_questions"],
+  "properties":{
+    "subprotocols":{"type":"array","items":{
+      "type":"object",
+      "required":["name","purpose","key_frames","depends_on","boundaries","cites"],
+      "properties":{
+        "name":{"type":"string"},
+        "purpose":{"type":"string","maxLength":200},
+        "key_frames":{"type":"array","items":{"type":"string"}},
+        "depends_on":{"type":"array","items":{"type":"string"}},
+        "boundaries":{"type":"object","properties":{
+          "includes":{"type":"array","items":{"type":"string"}},
+          "excludes":{"type":"array","items":{"type":"string"}}
+        }},
+        "cites":{"type":"array","items":{"type":"string"}}
+      }
+    }},
+    "open_questions":{"type":"array","items":{
+      "type":"object",
+      "required":["ask"],
+      "properties":{
+        "ask":{"type":"string"},
+        "related_frames":{"type":"array","items":{"type":"string"}},
+        "wanted_sections":{"type":"array","items":{"type":"string"}}
+      }
+    }}
+  }
+}

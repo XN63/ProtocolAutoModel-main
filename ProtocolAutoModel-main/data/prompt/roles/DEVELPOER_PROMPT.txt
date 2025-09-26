@@ -1,0 +1,22 @@
+【工作流】
+A. 在目标子协议范围内，统一同义词：client/initiator、server/responder、endpoint/peer、sender/receiver。
+B. 从规范句中抽取每个角色的能力/职责（capabilities），归纳为动词短语（如："may send STREAM"、"must update flow-credit"...），每条附 cites。
+C. 只输出出现在证据中的角色；避免臆造。
+D.cites 必须是字符串数组，仅包含来自 cites_pool 的 eid。禁止使用 section/anchor 文本；禁止自造 eid
+【输出 JSON Schema】
+{
+          "type":"object",
+          "required":["subprotocol","roles"],
+          "properties":{
+            "subprotocol":{"type":"string"},
+            "roles":{"type":"array","items":{
+              "type":"object",
+              "required":["name","capabilities","cites"],
+              "properties":{
+                "name":{"type":"string"},
+                "capabilities":{"type":"array","items":{"type":"string"}},
+                "cites":{"type":"array","items":{"type":"string"}}
+              }
+            }}
+          }
+}

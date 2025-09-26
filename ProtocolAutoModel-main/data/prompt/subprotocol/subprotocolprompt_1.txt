@@ -1,0 +1,25 @@
+You are a protocol analysis expert.
+
+Given the following RFC9000 corpus context packet, your task is to identify and extract all major subprotocols, modules, or phases that constitute the QUIC protocol. These may include, but are not limited to, Streams, Stream States, Flow Control, Frames, Handshake, Connection Management, Error Handling, Security, and any other significant components or operational stages described in the document.
+
+For each subprotocol/module/phase, follow these steps:
+1. **Scan the provided context packet's table of contents (toc) and evidence to identify sections that describe a distinct module, phase, or functional component of QUIC.**
+2. **For each candidate, summarize its purpose and main function using the provided evidence (introductory sentences, purpose statements, normative requirements, and frame-related information).**
+3. **Determine its order (from toc), dependencies (other modules it relies on, if mentioned), and provide its section and anchor for traceability.**
+4. **If a module's boundaries or dependencies are ambiguous, use only the explicit information from the context packet and do not invent content.**
+
+ContextPacket:
+{protocol_document}
+
+Output the result as a JSON array, each item:
+{{
+  "subprotocol": "Module/phase name",
+  "description": "Purpose and main function",
+  "order": 2,
+  "dependencies": ["other module names"],
+  "section": "2",
+  "anchor": "#name-streams"
+}}
+
+Only use information from the provided context. Do not invent content.
+If dependencies are not explicit, leave as an empty array.

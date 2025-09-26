@@ -1,0 +1,80 @@
+{
+  "subprotocols": [
+    {
+      "name": "Streams",
+      "purpose": "Manage data streams, including types, identifiers, and operations.",
+      "key_frames": [
+        "RESET_STREAM",
+        "STOP_SENDING",
+        "STREAM"
+      ],
+      "depends_on": [
+        "Flow Control"
+      ],
+      "boundaries": {
+        "includes": [
+          "2",
+          "2.1",
+          "2.2",
+          "2.3",
+          "2.4",
+          "3",
+          "3.1",
+          "3.2",
+          "3.3",
+          "3.4",
+          "3.5"
+        ],
+        "excludes": []
+      },
+      "cites": [
+        "2-p80-s1",
+        "2.1-p86-s1",
+        "2.2-p96-s1"
+      ]
+    },
+    {
+      "name": "Flow Control",
+      "purpose": "Control data flow to prevent congestion and manage stream limits.",
+      "key_frames": [
+        "DATA_BLOCKED",
+        "MAX_DATA",
+        "MAX_STREAMS",
+        "MAX_STREAM_DATA",
+        "STREAMS_BLOCKED",
+        "STREAM_DATA_BLOCKED"
+      ],
+      "depends_on": [],
+      "boundaries": {
+        "includes": [
+          "4",
+          "4.1",
+          "4.2",
+          "4.3",
+          "4.4",
+          "4.5",
+          "4.6"
+        ],
+        "excludes": []
+      },
+      "cites": [
+        "4-p172-s1",
+        "4.1-p184-s1",
+        "4.2-p191-s1"
+      ]
+    }
+  ],
+  "open_questions": [
+    {
+      "ask": "Clarify the role of PADDING and PING frames in the context of Streams and Flow Control.",
+      "related_frames": [
+        "PADDING",
+        "PING"
+      ],
+      "wanted_sections": [
+        "19.1",
+        "19.2"
+      ]
+    }
+  ]
+}

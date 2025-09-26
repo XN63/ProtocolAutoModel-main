@@ -1,0 +1,78 @@
+{
+  "subprotocol": "Streams",
+  "role": "sender",
+  "mode": "frame_only",
+  "events": [
+    "RESET_STREAM",
+    "STOP_SENDING",
+    "STREAM"
+  ],
+  "transitions": [
+    {
+      "from": "Ready",
+      "event": "STREAM",
+      "to": "Send",
+      "guard": "",
+      "action": [],
+      "normative_strength": "MUST",
+      "inferred": false,
+      "cites": [
+        "3.1-p371-s1"
+      ]
+    },
+    {
+      "from": "Ready",
+      "event": "STOP_SENDING",
+      "to": "Reset Sent",
+      "guard": "",
+      "action": [
+        "send RESET_STREAM"
+      ],
+      "normative_strength": "MUST",
+      "inferred": false,
+      "cites": [
+        "2.4-p328-s65"
+      ]
+    },
+    {
+      "from": "Send",
+      "event": "STOP_SENDING",
+      "to": "Reset Sent",
+      "guard": "",
+      "action": [
+        "send RESET_STREAM"
+      ],
+      "normative_strength": "MUST",
+      "inferred": false,
+      "cites": [
+        "2.4-p328-s65",
+        "3.5-p508-s4"
+      ]
+    },
+    {
+      "from": "Data Sent",
+      "event": "STOP_SENDING",
+      "to": "Reset Sent",
+      "guard": "outstanding data declared lost",
+      "action": [
+        "send RESET_STREAM"
+      ],
+      "normative_strength": "SHOULD",
+      "inferred": false,
+      "cites": [
+        "2.4-p329-s66",
+        "2.4-p330-s67"
+      ]
+    }
+  ],
+  "invariants": [
+    {
+      "name": "no_stream_after_reset",
+      "expr": "MUST NOT send STREAM or STREAM_DATA_BLOCKED after RESET_STREAM",
+      "cites": [
+        "2.4-p314-s51"
+      ]
+    }
+  ],
+  "gaps": []
+}

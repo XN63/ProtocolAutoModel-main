@@ -1,0 +1,61 @@
+{
+  "protocol": "QUIC",
+  "docs": {
+    "rfc9000": "d:/ProtocolAutoModel-main/rfc_html/RFC_9000_ QUIC.html",
+    "rfc9002": "d:/ProtocolAutoModel-main/rfc_html/RFC_9002_ QUIC.html"
+  },
+  "frames": [
+    "STREAM",
+    "RESET_STREAM",
+    "STOP_SENDING",
+    "MAX_STREAMS",
+    "MAX_STREAM_DATA",
+    "STREAMS_BLOCKED",
+    "DATA_BLOCKED",
+    "STREAM_DATA_BLOCKED",
+    "MAX_DATA"
+  ],
+  "states": {
+    "sender": [],
+    "receiver": []
+  },
+  "roles": {
+    "canonical": [
+      "client",
+      "server",
+      "endpoint",
+      "peer",
+      "sender",
+      "receiver"
+    ],
+    "synonyms": {}
+  },
+  "errors": [
+    "FRAME_ENCODING_ERROR",
+    "TRANSPORT_PARAMETER_ERROR",
+    "FLOW_CONTROL_ERROR",
+    "FINAL_SIZE_ERROR"
+  ],
+  "mechanisms": {
+    "flow_control_caps": [
+      "MAX_STREAM_DATA",
+      "MAX_DATA",
+      "MAX_STREAMS",
+      "STREAM_DATA_BLOCKED",
+      "DATA_BLOCKED",
+      "STREAMS_BLOCKED"
+    ],
+    "flow_control_terms": [
+      "limit",
+      "credit"
+    ],
+    "congestion_terms": [
+      "ssthresh",
+      "rttvar",
+      "PTO",
+      "ECN",
+      "loss",
+      "recovery"
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "subprotocol": "Streams",
+  "role": "receiver",
+  "states": [
+    {
+      "name": "Recv",
+      "aliases": [],
+      "enter_hints": [
+        "In the \"Recv\" state, the endpoint receives STREAM and STREAM_DATA_BLOCKED frames."
+      ],
+      "exit_hints": [
+        "If the stream is in the \"Recv\" or \"Size Known\" state, the transport SHOULD signal this by sending a STOP_SENDING frame.",
+        "Once all data for the stream has been received, the receiving part enters the \"Data Received\" state."
+      ],
+      "cites": [
+        "3.2-p433-s1",
+        "3.5-p502-s1",
+        "3.2-p439-s1"
+      ]
+    },
+    {
+      "name": "Size Known",
+      "aliases": [],
+      "enter_hints": [
+        "The receiving part of the stream then enters the \"Size Known\" state."
+      ],
+      "exit_hints": [
+        "If the stream is in the \"Recv\" or \"Size Known\" state, the transport SHOULD signal this by sending a STOP_SENDING frame."
+      ],
+      "cites": [
+        "2.4-p301-s38",
+        "3.5-p502-s1"
+      ]
+    },
+    {
+      "name": "Data Received",
+      "aliases": [],
+      "enter_hints": [
+        "Once all data for the stream has been received, the receiving part enters the \"Data Received\" state."
+      ],
+      "exit_hints": [],
+      "cites": [
+        "3.2-p439-s1"
+      ]
+    }
+  ]
+}

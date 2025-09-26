@@ -1,0 +1,38 @@
+2025-09-18 18:13:13,861 - INFO - roleExtractor.py:36 - 日志初始化：role_prompt.log
+2025-09-18 18:13:13,904 - INFO - roleExtractor.py:257 - 启动时间：2025-09-18 18:13:13 CST
+2025-09-18 18:13:13,905 - INFO - roleExtractor.py:275 - MODEL=qwen2-5-72b-instruct, MAX_INPUT=32768, HARD_CAP=30720, MAX_OUTPUT_TOKENS=2048
+2025-09-18 19:06:57,234 - INFO - roleExtractor.py:36 - 日志初始化：role_prompt.log
+2025-09-18 19:06:57,280 - INFO - roleExtractor.py:257 - 启动时间：2025-09-18 19:06:57 CST
+2025-09-18 19:06:57,280 - INFO - roleExtractor.py:275 - MODEL=qwen2-5-72b-instruct, MAX_INPUT=32768, HARD_CAP=30720, MAX_OUTPUT_TOKENS=2048
+2025-09-18 19:08:24,292 - INFO - roleExtractor.py:36 - 日志初始化：role_prompt.log
+2025-09-18 19:08:24,336 - INFO - roleExtractor.py:257 - 启动时间：2025-09-18 19:08:24 CST
+2025-09-18 19:08:24,336 - INFO - roleExtractor.py:275 - MODEL=qwen2-5-72b-instruct, MAX_INPUT=32768, HARD_CAP=30720, MAX_OUTPUT_TOKENS=2048
+2025-09-18 19:10:18,823 - INFO - roleExtractor.py:36 - 日志初始化：role_prompt.log
+2025-09-18 19:10:18,869 - INFO - roleExtractor.py:257 - 启动时间：2025-09-18 19:10:18 CST
+2025-09-18 19:10:18,869 - INFO - roleExtractor.py:275 - MODEL=qwen2-5-72b-instruct, MAX_INPUT=32768, HARD_CAP=30720, MAX_OUTPUT_TOKENS=2048
+2025-09-18 19:12:24,642 - INFO - roleExtractor.py:36 - 日志初始化：role_prompt.log
+2025-09-18 19:12:24,732 - INFO - roleExtractor.py:257 - 启动时间：2025-09-18 19:12:24 CST
+2025-09-18 19:12:24,733 - INFO - roleExtractor.py:275 - MODEL=qwen2-5-72b-instruct, MAX_INPUT=32768, HARD_CAP=30720, MAX_OUTPUT_TOKENS=2048
+2025-09-18 19:12:24,844 - INFO - roleExtractor.py:288 - 模板基线 tokens ≈ 287
+2025-09-18 19:12:24,844 - INFO - roleExtractor.py:291 - 分片数：1
+2025-09-18 19:12:24,845 - INFO - roleExtractor.py:309 - [Shard 1] 发送 tokens≈5354
+2025-09-18 19:16:57,752 - INFO - roleExtractor.py:36 - 日志初始化：role_prompt.log
+2025-09-18 19:16:57,835 - INFO - roleExtractor.py:257 - 启动时间：2025-09-18 19:16:57 CST
+2025-09-18 19:16:57,836 - INFO - roleExtractor.py:275 - MODEL=qwen2-5-72b-instruct, MAX_INPUT=32768, HARD_CAP=30720, MAX_OUTPUT_TOKENS=2048
+2025-09-18 19:16:57,948 - INFO - roleExtractor.py:288 - 模板基线 tokens ≈ 287
+2025-09-18 19:16:57,948 - INFO - roleExtractor.py:291 - 分片数：1
+2025-09-18 19:16:57,949 - INFO - roleExtractor.py:309 - [Shard 1] 发送 tokens≈5354
+2025-09-19 19:47:31,980 - INFO - roleExtractor.py:36 - 日志初始化：role_prompt.log
+2025-09-19 19:47:32,123 - INFO - roleExtractor.py:257 - 启动时间：2025-09-19 19:47:32 CST
+2025-09-19 19:47:32,124 - INFO - roleExtractor.py:275 - MODEL=qwen2-5-72b-instruct, MAX_INPUT=32768, HARD_CAP=30720, MAX_OUTPUT_TOKENS=2048
+2025-09-19 19:47:35,118 - INFO - roleExtractor.py:288 - 模板基线 tokens ≈ 517
+2025-09-19 19:47:35,121 - INFO - roleExtractor.py:291 - 分片数：1
+2025-09-19 19:47:35,129 - INFO - roleExtractor.py:309 - [Shard 1] 发送 tokens≈6184
+2025-09-19 19:48:22,371 - INFO - roleExtractor.py:316 - [Shard 1] 收到结果 3084 chars
+2025-09-25 15:24:46,836 - INFO - roleExtractor.py:36 - 日志初始化：role_prompt.log
+2025-09-25 15:24:46,883 - INFO - roleExtractor.py:257 - 启动时间：2025-09-25 15:24:46 CST
+2025-09-25 15:24:46,884 - INFO - roleExtractor.py:275 - MODEL=qwen2-5-72b-instruct, MAX_INPUT=32768, HARD_CAP=30720, MAX_OUTPUT_TOKENS=2048
+2025-09-25 15:24:47,205 - INFO - roleExtractor.py:288 - 模板基线 tokens ≈ 517
+2025-09-25 15:24:47,208 - INFO - roleExtractor.py:291 - 分片数：1
+2025-09-25 15:24:47,218 - INFO - roleExtractor.py:309 - [Shard 1] 发送 tokens≈6184
+2025-09-25 15:25:31,713 - INFO - roleExtractor.py:316 - [Shard 1] 收到结果 3084 chars

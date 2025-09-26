@@ -1,0 +1,25 @@
+{
+  "subprotocol": "",
+  "role": "",
+  "mode": "mechanisms",
+  "events": [],
+  "transitions": [
+    {
+      "from": "",
+      "event": "",
+      "to": "",
+      "guard": "",
+      "action": [],
+      "normative_strength": "",
+      "inferred": false,
+      "cites": []
+    }
+  ],
+  "invariants": [
+    {
+      "name": "",
+      "expr": "",
+      "cites": []
+    }
+  ]
+}

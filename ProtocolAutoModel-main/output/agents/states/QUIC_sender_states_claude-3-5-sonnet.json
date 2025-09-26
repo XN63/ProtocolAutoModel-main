@@ -1,0 +1,56 @@
+{
+  "subprotocol": "Streams",
+  "role": "sender",
+  "states": [
+    {
+      "name": "Ready",
+      "aliases": [],
+      "enter_hints": [],
+      "exit_hints": [
+        "Must send RESET_STREAM when receiving STOP_SENDING frame"
+      ],
+      "cites": [
+        "2.4-p328-s65"
+      ]
+    },
+    {
+      "name": "Send",
+      "aliases": [],
+      "enter_hints": [
+        "When sending part of stream enters Send state"
+      ],
+      "exit_hints": [
+        "Must send RESET_STREAM when receiving STOP_SENDING frame"
+      ],
+      "cites": [
+        "3.1-p371-s1",
+        "2.4-p328-s65",
+        "3.1-p374-s1"
+      ]
+    },
+    {
+      "name": "Data Sent",
+      "aliases": [],
+      "enter_hints": [],
+      "exit_hints": [
+        "May defer sending RESET_STREAM frame when in this state"
+      ],
+      "cites": [
+        "2.4-p329-s66"
+      ]
+    },
+    {
+      "name": "Reset Sent",
+      "aliases": [],
+      "enter_hints": [
+        "When sending RESET_STREAM frame",
+        "Can immediately transition to Reset Sent after opening stream"
+      ],
+      "exit_hints": [],
+      "cites": [
+        "2.4-p287-s24",
+        "3.1-p386-s1"
+      ]
+    }
+  ]
+}

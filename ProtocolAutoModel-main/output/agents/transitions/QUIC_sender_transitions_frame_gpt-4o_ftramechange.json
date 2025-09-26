@@ -1,0 +1,91 @@
+{
+  "subprotocol": "Streams",
+  "role": "sender",
+  "mode": "mechanisms",
+  "events": [
+    "RESET_STREAM",
+    "STOP_SENDING",
+    "STREAM",
+    "STREAM_DATA_BLOCKED"
+  ],
+  "transitions": [
+    {
+      "from": "Ready",
+      "event": "STOP_SENDING",
+      "to": "Reset Sent",
+      "guard": "stream in Ready or Send state",
+      "action": [
+        "send RESET_STREAM"
+      ],
+      "normative_strength": "MUST",
+      "inferred": false,
+      "cites": [
+        "2.4-p328-s65"
+      ]
+    },
+    {
+      "from": "Send",
+      "event": "STOP_SENDING",
+      "to": "Reset Sent",
+      "guard": "stream in Ready or Send state",
+      "action": [
+        "send RESET_STREAM"
+      ],
+      "normative_strength": "MUST",
+      "inferred": false,
+      "cites": [
+        "2.4-p328-s65"
+      ]
+    },
+    {
+      "from": "Data Sent",
+      "event": "STOP_SENDING",
+      "to": "Reset Sent",
+      "guard": "outstanding data declared lost",
+      "action": [
+        "send RESET_STREAM"
+      ],
+      "normative_strength": "SHOULD",
+      "inferred": false,
+      "cites": [
+        "3.5-p508-s4"
+      ]
+    },
+    {
+      "from": "any non-terminal state",
+      "event": "STREAM_DATA_BLOCKED",
+      "to": "same state",
+      "guard": "flow control limited",
+      "action": [
+        "send STREAM_DATA_BLOCKED"
+      ],
+      "normative_strength": "SHOULD",
+      "inferred": false,
+      "cites": [
+        "3.5-p529-s14",
+        "3.5-p531-s16"
+      ]
+    }
+  ],
+  "invariants": [
+    {
+      "name": "No STREAM in Reset Sent",
+      "expr": "STREAM not sent in Reset Sent or terminal states",
+      "cites": [
+        "2.4-p314-s51"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "ask": "Clarify transitions involving STREAM frame in various states.",
+      "wanted_sections": [
+        "3.1",
+        "3.5"
+      ],
+      "related_frames": [
+        "STREAM"
+      ]
+    }
+  ]
+}

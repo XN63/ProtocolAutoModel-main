@@ -1,0 +1,95 @@
+{
+  "subprotocol": "Streams",
+  "role": "sender",
+  "mode": "frame_only",
+  "events": [
+    "RESET_STREAM",
+    "STOP_SENDING",
+    "STREAM"
+  ],
+  "transitions": [
+    {
+      "from": "Ready",
+      "event": "STOP_SENDING",
+      "to": "Reset Sent",
+      "guard": "stream is in Ready or Send state",
+      "action": [
+        "send RESET_STREAM frame"
+      ],
+      "normative_strength": "MUST",
+      "inferred": false,
+      "cites": [
+        "2.4-p328-s65"
+      ]
+    },
+    {
+      "from": "Data Sent",
+      "event": "STOP_SENDING",
+      "to": "Reset Sent",
+      "guard": "outstanding data declared lost",
+      "action": [
+        "send RESET_STREAM frame"
+      ],
+      "normative_strength": "SHOULD",
+      "inferred": false,
+      "cites": [
+        "2.4-p330-s67",
+        "3.5-p508-s4"
+      ]
+    },
+    {
+      "from": "Recv",
+      "event": "STOP_SENDING",
+      "to": "Reset Sent",
+      "guard": "stream is in Recv or Size Known state",
+      "action": [
+        "send STOP_SENDING frame"
+      ],
+      "normative_strength": "SHOULD",
+      "inferred": false,
+      "cites": [
+        "3.5-p502-s1"
+      ]
+    },
+    {
+      "from": "Reset Sent",
+      "event": "STREAM",
+      "to": "Reset Sent",
+      "guard": "stream is in Reset Sent or terminal state",
+      "action": [
+        "do not send STREAM or STREAM_DATA_BLOCKED frame"
+      ],
+      "normative_strength": null,
+      "inferred": false,
+      "cites": [
+        "2.4-p314-s51"
+      ]
+    },
+    {
+      "from": "Open",
+      "event": "RESET_STREAM",
+      "to": "Reset Sent",
+      "guard": "RESET_STREAM is the first frame mentioning the stream",
+      "action": [
+        "transition to Reset Sent"
+      ],
+      "normative_strength": "MAY",
+      "inferred": false,
+      "cites": [
+        "3.1-p386-s1"
+      ]
+    }
+  ],
+  "invariants": [],
+  "gaps": [
+    {
+      "ask": "Clarify conditions for sending STOP_SENDING in various states.",
+      "wanted_sections": [
+        "3.5"
+      ],
+      "related_frames": [
+        "STOP_SENDING"
+      ]
+    }
+  ]
+}

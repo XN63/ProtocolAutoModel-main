@@ -1,0 +1,35 @@
+{
+  "subprotocol": "Streams",
+  "role": "receiver",
+  "states": [
+    {
+      "name": "Recv",
+      "aliases": [],
+      "enter_hints": [],
+      "exit_hints": [],
+      "cites": []
+    },
+    {
+      "name": "Size Known",
+      "aliases": [],
+      "enter_hints": [
+        "The receiving part of the stream then enters the Size Known state."
+      ],
+      "exit_hints": [],
+      "cites": [
+        "2.4-p110"
+      ]
+    },
+    {
+      "name": "Data Received",
+      "aliases": [],
+      "enter_hints": [
+        "Once all data for the stream has been received, the receiving part enters the Data Received state."
+      ],
+      "exit_hints": [],
+      "cites": [
+        "3.2-p142"
+      ]
+    }
+  ]
+}

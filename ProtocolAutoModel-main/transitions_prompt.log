@@ -1,0 +1,17 @@
+2025-09-18 19:23:07,286 - INFO - transitionsExtractor.py:60 - 日志初始化：transitions_prompt.log
+2025-09-18 19:23:07,378 - INFO - transitionsExtractor.py:287 - 启动时间：2025-09-18 19:23:07 CST
+2025-09-18 19:23:07,378 - INFO - transitionsExtractor.py:298 - 模型=gpt-4o；模式=frame
+2025-09-18 19:23:08,359 - INFO - transitionsExtractor.py:120 - 模式=frame；角色=receiver
+2025-09-18 19:23:14,004 - INFO - _client.py:1025 - HTTP Request: POST https://api.gpt.ge/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-09-19 20:15:30,004 - INFO - transitionsExtractor.py:60 - 日志初始化：transitions_prompt.log
+2025-09-19 20:15:30,096 - INFO - transitionsExtractor.py:287 - 启动时间：2025-09-19 20:15:30 CST
+2025-09-19 20:15:30,097 - INFO - transitionsExtractor.py:298 - 模型=gpt-4o；模式=frame
+2025-09-19 20:15:31,075 - INFO - transitionsExtractor.py:120 - 模式=frame；角色=receiver
+2025-09-19 20:15:40,348 - INFO - _client.py:1025 - HTTP Request: POST https://api.gpt.ge/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-19 20:15:40,407 - INFO - transitionsExtractor.py:335 - [1] chars=1454
+2025-09-25 15:36:04,148 - INFO - transitionsExtractor.py:60 - 日志初始化：transitions_prompt.log
+2025-09-25 15:36:04,199 - INFO - transitionsExtractor.py:287 - 启动时间：2025-09-25 15:36:04 CST
+2025-09-25 15:36:04,200 - INFO - transitionsExtractor.py:298 - 模型=gpt-4o；模式=frame
+2025-09-25 15:36:05,246 - INFO - transitionsExtractor.py:120 - 模式=frame；角色=receiver
+2025-09-25 15:36:13,962 - INFO - _client.py:1025 - HTTP Request: POST https://api.gpt.ge/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-25 15:36:13,994 - INFO - transitionsExtractor.py:335 - [1] chars=1461

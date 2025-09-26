@@ -1,0 +1,66 @@
+{
+  "subprotocol": "Streams",
+  "role": "sender",
+  "mode": "mechanisms",
+  "events": [
+    "FLOW_CREDIT_EXHAUSTED",
+    "RESET_STREAM",
+    "STOP_SENDING",
+    "STREAM"
+  ],
+  "transitions": [
+    {
+      "from": "Ready",
+      "event": "FLOW_CREDIT_EXHAUSTED",
+      "to": "Blocked",
+      "guard": "flow control credit not reserved",
+      "action": [
+        "send STREAM_DATA_BLOCKED or DATA_BLOCKED frame"
+      ],
+      "normative_strength": "SHOULD",
+      "inferred": false,
+      "cites": [
+        "3.5-p529-s14",
+        "3.5-p531-s16"
+      ]
+    },
+    {
+      "from": "Blocked",
+      "event": "FLOW_CREDIT_AVAILABLE",
+      "to": "Ready",
+      "guard": "flow control credit reserved",
+      "action": [
+        "resume data transmission"
+      ],
+      "normative_strength": "MUST",
+      "inferred": true,
+      "cites": [
+        "2.4-p257-s1",
+        "3.5-p544-s29"
+      ]
+    }
+  ],
+  "invariants": [
+    {
+      "name": "FlowControlStateMaintenance",
+      "expr": "Both endpoints MUST maintain flow control state for the stream",
+      "cites": [
+        "3.5-p544-s29"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "ask": "Clarify the conditions under which a sender transitions from Blocked to Ready state.",
+      "wanted_sections": [
+        "3.1",
+        "3.5"
+      ],
+      "related_frames": [
+        "STREAM",
+        "RESET_STREAM",
+        "STOP_SENDING"
+      ]
+    }
+  ]
+}

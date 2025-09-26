@@ -1,0 +1,13 @@
+{
+  "subprotocol": "",
+  "role": "",
+  "states": [
+    {
+      "name": "",
+      "aliases": [],
+      "enter_hints": [],
+      "exit_hints": [],
+      "cites": []
+    }
+  ]
+}

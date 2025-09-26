@@ -1,0 +1,16 @@
+2025-09-12 03:12:28,358 - INFO - subprotocolextractor_eid.py:57 - 日志初始化：subprotocol_prompt.log
+2025-09-12 03:12:28,376 - INFO - subprotocolextractor_eid.py:485 - 启动时间：2025-09-12 11:12:28 CST
+2025-09-12 03:12:28,409 - INFO - subprotocolextractor_eid.py:507 - MODEL=gpt-4o, MAX_INPUT=8192, HARD_CAP=7168, MAX_OUTPUT_TOKENS=1024
+2025-09-12 03:12:29,278 - INFO - subprotocolextractor_eid.py:524 - 模板基线 tokens ≈ 711
+2025-09-12 03:12:29,342 - INFO - subprotocolextractor_eid.py:528 - 分片数：3
+2025-09-12 03:12:29,352 - INFO - subprotocolextractor_eid.py:558 - [Shard 1] 发送 tokens≈6945
+2025-09-12 03:12:40,899 - INFO - _client.py:1038 - HTTP Request: POST https://api.gpt.ge/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-12 03:12:40,913 - INFO - subprotocolextractor_eid.py:568 - [Shard 1] 收到结果 2336 chars
+2025-09-12 03:12:40,929 - WARNING - subprotocolextractor_eid.py:543 - [Shard 2] 超预算，启动二次裁剪 evidence…
+2025-09-12 03:12:40,972 - INFO - subprotocolextractor_eid.py:558 - [Shard 2] 发送 tokens≈3702
+2025-09-12 03:12:42,362 - INFO - _client.py:1038 - HTTP Request: POST https://api.gpt.ge/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-12 03:12:42,365 - INFO - subprotocolextractor_eid.py:568 - [Shard 2] 收到结果 48 chars
+2025-09-12 03:12:42,379 - INFO - subprotocolextractor_eid.py:558 - [Shard 3] 发送 tokens≈4627
+2025-09-12 03:14:55,990 - INFO - _client.py:1038 - HTTP Request: POST https://api.gpt.ge/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-12 03:14:55,992 - INFO - subprotocolextractor_eid.py:568 - [Shard 3] 收到结果 934 chars
+2025-09-12 03:14:56,104 - INFO - subprotocolextractor_eid.py:589 - 已保存：/root/project/ProtocolMAS/protocolMas/model_extrator/make_eid/output/agents/subprotocol/QUIC_subprotocols_gpt-4o_make_eid.json

@@ -1,0 +1,114 @@
+{
+  "subprotocol": "Streams",
+  "role": "receiver",
+  "mode": "frame_only",
+  "events": [
+    "RESET_STREAM",
+    "STOP_SENDING",
+    "STREAM"
+  ],
+  "transitions": [
+    {
+      "from": "Recv",
+      "event": "STREAM",
+      "to": "Recv",
+      "guard": "The stream is in the 'Recv' state.",
+      "action": [
+        "Receive and process the STREAM frame."
+      ],
+      "normative_strength": "MUST",
+      "inferred": false,
+      "cites": [
+        "3.2-p433-s1"
+      ]
+    },
+    {
+      "from": "Recv",
+      "event": "STREAM_DATA_BLOCKED",
+      "to": "Recv",
+      "guard": "The stream is in the 'Recv' state.",
+      "action": [
+        "Receive and process the STREAM_DATA_BLOCKED frame."
+      ],
+      "normative_strength": "MUST",
+      "inferred": false,
+      "cites": [
+        "3.2-p433-s1"
+      ]
+    },
+    {
+      "from": "Recv",
+      "event": "STOP_SENDING",
+      "to": "Reset Recv",
+      "guard": "The stream is in the 'Recv' state.",
+      "action": [
+        "Send a RESET_STREAM frame."
+      ],
+      "normative_strength": "MUST",
+      "inferred": false,
+      "cites": [
+        "2.4-p328-s65",
+        "3.5-p505-s1"
+      ]
+    },
+    {
+      "from": "Recv",
+      "event": "RESET_STREAM",
+      "to": "Reset Recv",
+      "guard": "The stream is in the 'Recv' state.",
+      "action": [
+        "Process the RESET_STREAM frame."
+      ],
+      "normative_strength": "MUST",
+      "inferred": false,
+      "cites": [
+        "3.2-p433-s1"
+      ]
+    },
+    {
+      "from": "Size Known",
+      "event": "STOP_SENDING",
+      "to": "Reset Recv",
+      "guard": "The stream is in the 'Size Known' state.",
+      "action": [
+        "Send a RESET_STREAM frame."
+      ],
+      "normative_strength": "SHOULD",
+      "inferred": false,
+      "cites": [
+        "3.5-p502-s1"
+      ]
+    }
+  ],
+  "invariants": [
+    {
+      "name": "MAX_STREAM_DATA in Recv state",
+      "expr": "The receiver only sends MAX_STREAM_DATA frames in the 'Recv' state.",
+      "cites": [
+        "3.3-p468-s1"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "ask": "What happens when a receiver receives a STOP_SENDING frame in the 'Data Sent' state?",
+      "wanted_sections": [
+        "3.2",
+        "3.5"
+      ],
+      "related_frames": [
+        "STOP_SENDING"
+      ]
+    },
+    {
+      "ask": "What is the behavior of the receiver when it receives a RESET_STREAM frame in the 'Data Sent' state?",
+      "wanted_sections": [
+        "3.2",
+        "3.5"
+      ],
+      "related_frames": [
+        "RESET_STREAM"
+      ]
+    }
+  ]
+}

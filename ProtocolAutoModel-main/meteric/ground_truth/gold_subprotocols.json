@@ -1,0 +1,15 @@
+{
+  "subprotocols": [
+    {
+      "name": "",
+      "purpose": "",
+      "depends_on": [],
+      "boundaries": {
+        "includes": [],
+        "excludes": []
+      },
+      "key_frames": [],
+      "cites": []
+    }
+  ]
+}

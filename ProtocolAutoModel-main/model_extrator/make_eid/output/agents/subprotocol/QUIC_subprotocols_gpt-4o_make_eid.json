@@ -1,0 +1,147 @@
+{
+  "subprotocols": [
+    {
+      "name": "Streams",
+      "purpose": "Streams are used to send and receive data over a QUIC connection, allowing for multiplexing and prioritization.",
+      "key_frames": [
+        "RESET_STREAM",
+        "STOP_SENDING",
+        "STREAM"
+      ],
+      "depends_on": [],
+      "boundaries": {
+        "includes": [
+          "2",
+          "2.1",
+          "2.2",
+          "2.3",
+          "2.4"
+        ],
+        "excludes": []
+      },
+      "cites": [
+        "2.2##name-sending-and-receiving-data/para2.2-p96/sent2.2-p240-s1",
+        "2##name-streams/para2-p80/sent2-p191-s1",
+        "2.1##name-stream-types-and-identifier/para2.1-p86/sent2.1-p212-s1"
+      ]
+    },
+    {
+      "name": "Flow Control",
+      "purpose": "Flow control ensures that a sender does not overwhelm a receiver by sending more data than it can handle.",
+      "key_frames": [
+        "DATA_BLOCKED",
+        "MAX_DATA",
+        "MAX_STREAMS",
+        "MAX_STREAM_DATA",
+        "STREAM_DATA_BLOCKED"
+      ],
+      "depends_on": [],
+      "boundaries": {
+        "includes": [
+          "19.10",
+          "19.12",
+          "19.13",
+          "19.9",
+          "4",
+          "4.1",
+          "4.2",
+          "4.3",
+          "4.4",
+          "4.5",
+          "4.6"
+        ],
+        "excludes": []
+      },
+      "cites": [
+        "19.9##name-max_data-frames/para19.9-p1253/sent19.9-p5734-s1",
+        "19.9##name-max_data-frames/para19.9-p1246/sent19.9-p5723-s2",
+        "4##name-flow-control/para4-p172/sent4-p573-s1",
+        "4.6##name-controlling-concurrency/para4.6-p209/sent4.6-p689-s2",
+        "4.1##name-data-flow-control/para4.1-p184/sent4.1-p604-s1",
+        "19.12##name-data_blocked-frames/para19.12-p1287/sent19.12-p5814-s1"
+      ]
+    },
+    {
+      "name": "Connection Management",
+      "purpose": "Manages the lifecycle of a QUIC connection, including setup, maintenance, and closure.",
+      "key_frames": [
+        "NEW_CONNECTION_ID",
+        "RETIRE_CONNECTION_ID"
+      ],
+      "depends_on": [],
+      "boundaries": {
+        "includes": [
+          "19.15",
+          "19.16"
+        ],
+        "excludes": []
+      },
+      "cites": [
+        "19.16##name-retire_connection_id-frames/para19.16-p1340/sent19.16-p5926-s1",
+        "19.15##name-new_connection_id-frames/para19.15-p1327/sent19.15-p5898-s1"
+      ]
+    },
+    {
+      "name": "Error Handling",
+      "purpose": "Defines error codes for handling transport and application-level errors in QUIC.",
+      "key_frames": [],
+      "depends_on": [],
+      "boundaries": {
+        "includes": [
+          "20",
+          "20.1",
+          "20.2"
+        ],
+        "excludes": []
+      },
+      "cites": [
+        "20.2##name-application-protocol-error-/para20.2-p1413/sent20.2-p6129-s1",
+        "20##name-error-codes/para20-p1389/sent20-p6067-s1",
+        "20.1##name-transport-error-codes/para20.1-p1411/sent20.1-p6124-s1"
+      ]
+    },
+    {
+      "name": "Stream States",
+      "purpose": "Defines the states and transitions for streams, including sending and receiving states, and permitted frame types.",
+      "key_frames": [
+        "MAX_STREAM_DATA",
+        "STOP_SENDING"
+      ],
+      "depends_on": [
+        "Flow Control"
+      ],
+      "boundaries": {
+        "includes": [
+          "3",
+          "3.1",
+          "3.2",
+          "3.3",
+          "3.4",
+          "3.5"
+        ],
+        "excludes": []
+      },
+      "cites": [
+        "3.3##name-permitted-frame-types/para3.3-p152/sent3.3-p468-s1",
+        "3.1##name-sending-stream-states/para3.1-p120/sent3.1-p366-s1",
+        "3##name-stream-states/para3-p115/sent3-p347-s1"
+      ]
+    }
+  ],
+  "open_questions": [
+    {
+      "ask": "Clarify the role and dependencies of the STREAMS_BLOCKED frame.",
+      "related_frames": [
+        "STREAMS_BLOCKED"
+      ],
+      "wanted_sections": [
+        "19.14"
+      ]
+    }
+  ],
+  "_cites_validation": {
+    "total_cites": 17,
+    "unknown_eids": 0,
+    "empty_cites_items": 0
+  }
+}

@@ -1,0 +1,25 @@
+2025-09-18 18:13:14,617 - INFO - stateExtractor.py:52 - 日志初始化：states_prompt.log
+2025-09-18 18:13:14,663 - INFO - stateExtractor.py:224 - 启动时间：2025-09-18 18:13:14 CST
+2025-09-18 19:06:57,988 - INFO - stateExtractor.py:52 - 日志初始化：states_prompt.log
+2025-09-18 19:06:58,034 - INFO - stateExtractor.py:224 - 启动时间：2025-09-18 19:06:58 CST
+2025-09-19 19:48:31,648 - INFO - stateExtractor.py:52 - 日志初始化：states_prompt.log
+2025-09-19 19:48:31,739 - INFO - stateExtractor.py:224 - 启动时间：2025-09-19 19:48:31 CST
+2025-09-19 19:49:40,365 - INFO - stateExtractor.py:52 - 日志初始化：states_prompt.log
+2025-09-19 19:49:40,454 - INFO - stateExtractor.py:224 - 启动时间：2025-09-19 19:49:40 CST
+2025-09-19 20:00:07,901 - INFO - stateExtractor.py:52 - 日志初始化：states_prompt.log
+2025-09-19 20:00:07,989 - INFO - stateExtractor.py:224 - 启动时间：2025-09-19 20:00:07 CST
+2025-09-19 20:00:08,259 - INFO - stateExtractor.py:245 - 模板基线 tokens ≈ 333
+2025-09-19 20:00:08,261 - INFO - stateExtractor.py:248 - 分片数：1
+2025-09-19 20:00:08,268 - INFO - stateExtractor.py:262 - [Shard 1] 发送 tokens≈4649
+2025-09-19 20:03:51,980 - INFO - stateExtractor.py:269 - [Shard 1] 收到结果 542 chars
+2025-09-25 15:25:38,002 - INFO - stateExtractor.py:52 - 日志初始化：states_prompt.log
+2025-09-25 15:25:38,053 - INFO - stateExtractor.py:224 - 启动时间：2025-09-25 15:25:38 CST
+2025-09-25 15:25:38,344 - INFO - stateExtractor.py:245 - 模板基线 tokens ≈ 333
+2025-09-25 15:25:38,346 - INFO - stateExtractor.py:248 - 分片数：1
+2025-09-25 15:25:38,354 - INFO - stateExtractor.py:262 - [Shard 1] 发送 tokens≈4649
+2025-09-25 15:28:50,885 - INFO - stateExtractor.py:52 - 日志初始化：states_prompt.log
+2025-09-25 15:28:50,982 - INFO - stateExtractor.py:224 - 启动时间：2025-09-25 15:28:50 CST
+2025-09-25 15:28:51,263 - INFO - stateExtractor.py:245 - 模板基线 tokens ≈ 333
+2025-09-25 15:28:51,266 - INFO - stateExtractor.py:248 - 分片数：1
+2025-09-25 15:28:51,273 - INFO - stateExtractor.py:262 - [Shard 1] 发送 tokens≈4649
+2025-09-25 15:32:35,354 - INFO - stateExtractor.py:269 - [Shard 1] 收到结果 674 chars

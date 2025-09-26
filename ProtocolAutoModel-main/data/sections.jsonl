@@ -1,0 +1,206 @@
+{"section": "1", "title": "Overview", "anchor": "#name-overview", "order": 1}
+{"section": "1.1", "title": "Document Structure", "anchor": "#name-document-structure", "order": 2}
+{"section": "1.2", "title": "Terms and Definitions", "anchor": "#name-terms-and-definitions", "order": 3}
+{"section": "1.3", "title": "Notational Conventions", "anchor": "#name-notational-conventions", "order": 4}
+{"section": "2", "title": "Streams", "anchor": "#name-streams", "order": 5}
+{"section": "2.1", "title": "Stream Types and Identifiers", "anchor": "#name-stream-types-and-identifier", "order": 6}
+{"section": "2.2", "title": "Sending and Receiving Data", "anchor": "#name-sending-and-receiving-data", "order": 7}
+{"section": "2.3", "title": "Stream Prioritization", "anchor": "#name-stream-prioritization", "order": 8}
+{"section": "2.4", "title": "Operations on Streams", "anchor": "#name-operations-on-streams", "order": 9}
+{"section": "3", "title": "Stream States", "anchor": "#name-stream-states", "order": 10}
+{"section": "3.1", "title": "Sending Stream States", "anchor": "#name-sending-stream-states", "order": 11}
+{"section": "3.2", "title": "Receiving Stream States", "anchor": "#name-receiving-stream-states", "order": 12}
+{"section": "3.3", "title": "Permitted Frame Types", "anchor": "#name-permitted-frame-types", "order": 13}
+{"section": "3.4", "title": "Bidirectional Stream States", "anchor": "#name-bidirectional-stream-states", "order": 14}
+{"section": "3.5", "title": "Solicited State Transitions", "anchor": "#name-solicited-state-transitions", "order": 15}
+{"section": "4", "title": "Flow Control", "anchor": "#name-flow-control", "order": 16}
+{"section": "4.1", "title": "Data Flow Control", "anchor": "#name-data-flow-control", "order": 17}
+{"section": "4.2", "title": "Increasing Flow Control Limits", "anchor": "#name-increasing-flow-control-lim", "order": 18}
+{"section": "4.3", "title": "Flow Control Performance", "anchor": "#name-flow-control-performance", "order": 19}
+{"section": "4.4", "title": "Handling Stream Cancellation", "anchor": "#name-handling-stream-cancellatio", "order": 20}
+{"section": "4.5", "title": "Stream Final Size", "anchor": "#name-stream-final-size", "order": 21}
+{"section": "4.6", "title": "Controlling Concurrency", "anchor": "#name-controlling-concurrency", "order": 22}
+{"section": "5", "title": "Connections", "anchor": "#name-connections", "order": 23}
+{"section": "5.1", "title": "Connection ID", "anchor": "#name-connection-id", "order": 24}
+{"section": "5.1.1", "title": "Issuing Connection IDs", "anchor": "#name-issuing-connection-ids", "order": 25}
+{"section": "5.1.2", "title": "Consuming and Retiring Connection IDs", "anchor": "#name-consuming-and-retiring-conn", "order": 26}
+{"section": "5.2", "title": "Matching Packets to Connections", "anchor": "#name-matching-packets-to-connect", "order": 27}
+{"section": "5.2.1", "title": "Client Packet Handling", "anchor": "#name-client-packet-handling", "order": 28}
+{"section": "5.2.2", "title": "Server Packet Handling", "anchor": "#name-server-packet-handling", "order": 29}
+{"section": "5.2.3", "title": "Considerations for Simple Load Balancers", "anchor": "#name-considerations-for-simple-l", "order": 30}
+{"section": "5.3", "title": "Operations on Connections", "anchor": "#name-operations-on-connections", "order": 31}
+{"section": "6", "title": "Version Negotiation", "anchor": "#name-version-negotiation", "order": 32}
+{"section": "6.1", "title": "Sending Version Negotiation Packets", "anchor": "#name-sending-version-negotiation", "order": 33}
+{"section": "6.2", "title": "Handling Version Negotiation Packets", "anchor": "#name-handling-version-negotiatio", "order": 34}
+{"section": "6.3", "title": "Using Reserved Versions", "anchor": "#name-using-reserved-versions", "order": 35}
+{"section": "7", "title": "Cryptographic and Transport Handshake", "anchor": "#name-cryptographic-and-transport", "order": 36}
+{"section": "7.1", "title": "Example Handshake Flows", "anchor": "#name-example-handshake-flows", "order": 37}
+{"section": "7.2", "title": "Negotiating Connection IDs", "anchor": "#name-negotiating-connection-ids", "order": 38}
+{"section": "7.3", "title": "Authenticating Connection IDs", "anchor": "#name-authenticating-connection-i", "order": 39}
+{"section": "7.4", "title": "Transport Parameters", "anchor": "#name-transport-parameters", "order": 40}
+{"section": "7.4.1", "title": "Values of Transport Parameters for 0-RTT", "anchor": "#name-values-of-transport-paramet", "order": 41}
+{"section": "7.4.2", "title": "New Transport Parameters", "anchor": "#name-new-transport-parameters", "order": 42}
+{"section": "7.5", "title": "Cryptographic Message Buffering", "anchor": "#name-cryptographic-message-buffe", "order": 43}
+{"section": "8", "title": "Address Validation", "anchor": "#name-address-validation", "order": 44}
+{"section": "8.1", "title": "Address Validation during Connection Establishment", "anchor": "#name-address-validation-during-c", "order": 45}
+{"section": "8.1.1", "title": "Token Construction", "anchor": "#name-token-construction", "order": 46}
+{"section": "8.1.2", "title": "Address Validation Using Retry Packets", "anchor": "#name-address-validation-using-re", "order": 47}
+{"section": "8.1.3", "title": "Address Validation for Future Connections", "anchor": "#name-address-validation-for-futu", "order": 48}
+{"section": "8.1.4", "title": "Address Validation Token Integrity", "anchor": "#name-address-validation-token-in", "order": 49}
+{"section": "8.2", "title": "Path Validation", "anchor": "#name-path-validation", "order": 50}
+{"section": "8.2.1", "title": "Initiating Path Validation", "anchor": "#name-initiating-path-validation", "order": 51}
+{"section": "8.2.2", "title": "Path Validation Responses", "anchor": "#name-path-validation-responses", "order": 52}
+{"section": "8.2.3", "title": "Successful Path Validation", "anchor": "#name-successful-path-validation", "order": 53}
+{"section": "8.2.4", "title": "Failed Path Validation", "anchor": "#name-failed-path-validation", "order": 54}
+{"section": "9", "title": "Connection Migration", "anchor": "#name-connection-migration", "order": 55}
+{"section": "9.1", "title": "Probing a New Path", "anchor": "#name-probing-a-new-path", "order": 56}
+{"section": "9.2", "title": "Initiating Connection Migration", "anchor": "#name-initiating-connection-migra", "order": 57}
+{"section": "9.3", "title": "Responding to Connection Migration", "anchor": "#name-responding-to-connection-mi", "order": 58}
+{"section": "9.3.1", "title": "Peer Address Spoofing", "anchor": "#name-peer-address-spoofing", "order": 59}
+{"section": "9.3.2", "title": "On-Path Address Spoofing", "anchor": "#name-on-path-address-spoofing", "order": 60}
+{"section": "9.3.3", "title": "Off-Path Packet Forwarding", "anchor": "#name-off-path-packet-forwarding", "order": 61}
+{"section": "9.4", "title": "Loss Detection and Congestion Control", "anchor": "#name-loss-detection-and-congesti", "order": 62}
+{"section": "9.5", "title": "Privacy Implications of Connection Migration", "anchor": "#name-privacy-implications-of-con", "order": 63}
+{"section": "9.6", "title": "Server's Preferred Address", "anchor": "#name-servers-preferred-address", "order": 64}
+{"section": "9.6.1", "title": "Communicating a Preferred Address", "anchor": "#name-communicating-a-preferred-a", "order": 65}
+{"section": "9.6.2", "title": "Migration to a Preferred Address", "anchor": "#name-migration-to-a-preferred-ad", "order": 66}
+{"section": "9.6.3", "title": "Interaction of Client Migration and Preferred Address", "anchor": "#name-interaction-of-client-migra", "order": 67}
+{"section": "9.7", "title": "Use of IPv6 Flow Label and Migration", "anchor": "#name-use-of-ipv6-flow-label-and-", "order": 68}
+{"section": "10", "title": "Connection Termination", "anchor": "#name-connection-termination", "order": 69}
+{"section": "10.1", "title": "Idle Timeout", "anchor": "#name-idle-timeout", "order": 70}
+{"section": "10.1.1", "title": "Liveness Testing", "anchor": "#name-liveness-testing", "order": 71}
+{"section": "10.1.2", "title": "Deferring Idle Timeout", "anchor": "#name-deferring-idle-timeout", "order": 72}
+{"section": "10.2", "title": "Immediate Close", "anchor": "#name-immediate-close", "order": 73}
+{"section": "10.2.1", "title": "Closing Connection State", "anchor": "#name-closing-connection-state", "order": 74}
+{"section": "10.2.2", "title": "Draining Connection State", "anchor": "#name-draining-connection-state", "order": 75}
+{"section": "10.2.3", "title": "Immediate Close during the Handshake", "anchor": "#name-immediate-close-during-the-", "order": 76}
+{"section": "10.3", "title": "Stateless Reset", "anchor": "#name-stateless-reset", "order": 77}
+{"section": "10.3.1", "title": "Detecting a Stateless Reset", "anchor": "#name-detecting-a-stateless-reset", "order": 78}
+{"section": "10.3.2", "title": "Calculating a Stateless Reset Token", "anchor": "#name-calculating-a-stateless-res", "order": 79}
+{"section": "10.3.3", "title": "Looping", "anchor": "#name-looping", "order": 80}
+{"section": "11", "title": "Error Handling", "anchor": "#name-error-handling", "order": 81}
+{"section": "11.1", "title": "Connection Errors", "anchor": "#name-connection-errors", "order": 82}
+{"section": "11.2", "title": "Stream Errors", "anchor": "#name-stream-errors", "order": 83}
+{"section": "12", "title": "Packets and Frames", "anchor": "#name-packets-and-frames", "order": 84}
+{"section": "12.1", "title": "Protected Packets", "anchor": "#name-protected-packets", "order": 85}
+{"section": "12.2", "title": "Coalescing Packets", "anchor": "#name-coalescing-packets", "order": 86}
+{"section": "12.3", "title": "Packet Numbers", "anchor": "#name-packet-numbers", "order": 87}
+{"section": "12.4", "title": "Frames and Frame Types", "anchor": "#name-frames-and-frame-types", "order": 88}
+{"section": "12.5", "title": "Frames and Number Spaces", "anchor": "#name-frames-and-number-spaces", "order": 89}
+{"section": "13", "title": "Packetization and Reliability", "anchor": "#name-packetization-and-reliabili", "order": 90}
+{"section": "13.1", "title": "Packet Processing", "anchor": "#name-packet-processing", "order": 91}
+{"section": "13.2", "title": "Generating Acknowledgments", "anchor": "#name-generating-acknowledgments", "order": 92}
+{"section": "13.2.1", "title": "Sending ACK Frames", "anchor": "#name-sending-ack-frames", "order": 93}
+{"section": "13.2.2", "title": "Acknowledgment Frequency", "anchor": "#name-acknowledgment-frequency", "order": 94}
+{"section": "13.2.3", "title": "Managing ACK Ranges", "anchor": "#name-managing-ack-ranges", "order": 95}
+{"section": "13.2.4", "title": "Limiting Ranges by Tracking ACK Frames", "anchor": "#name-limiting-ranges-by-tracking", "order": 96}
+{"section": "13.2.5", "title": "Measuring and Reporting Host Delay", "anchor": "#name-measuring-and-reporting-hos", "order": 97}
+{"section": "13.2.6", "title": "ACK Frames and Packet Protection", "anchor": "#name-ack-frames-and-packet-prote", "order": 98}
+{"section": "13.2.7", "title": "PADDING Frames Consume Congestion Window", "anchor": "#name-padding-frames-consume-cong", "order": 99}
+{"section": "13.3", "title": "Retransmission of Information", "anchor": "#name-retransmission-of-informati", "order": 100}
+{"section": "13.4", "title": "Explicit Congestion Notification", "anchor": "#name-explicit-congestion-notific", "order": 101}
+{"section": "13.4.1", "title": "Reporting ECN Counts", "anchor": "#name-reporting-ecn-counts", "order": 102}
+{"section": "13.4.2", "title": "ECN Validation", "anchor": "#name-ecn-validation", "order": 103}
+{"section": "13.4.2.1", "title": "Receiving ACK Frames with ECN Counts", "anchor": "#name-receiving-ack-frames-with-e", "order": 104}
+{"section": "13.4.2.2", "title": "ECN Validation Outcomes", "anchor": "#name-ecn-validation-outcomes", "order": 105}
+{"section": "14", "title": "Datagram Size", "anchor": "#name-datagram-size", "order": 106}
+{"section": "14.1", "title": "Initial Datagram Size", "anchor": "#name-initial-datagram-size", "order": 107}
+{"section": "14.2", "title": "Path Maximum Transmission Unit", "anchor": "#name-path-maximum-transmission-u", "order": 108}
+{"section": "14.2.1", "title": "Handling of ICMP Messages by PMTUD", "anchor": "#name-handling-of-icmp-messages-b", "order": 109}
+{"section": "14.3", "title": "Datagram Packetization Layer PMTU Discovery", "anchor": "#name-datagram-packetization-laye", "order": 110}
+{"section": "14.3.1", "title": "DPLPMTUD and Initial Connectivity", "anchor": "#name-dplpmtud-and-initial-connec", "order": 111}
+{"section": "14.3.2", "title": "Validating the Network Path with DPLPMTUD", "anchor": "#name-validating-the-network-path", "order": 112}
+{"section": "14.3.3", "title": "Handling of ICMP Messages by DPLPMTUD", "anchor": "#name-handling-of-icmp-messages-by", "order": 113}
+{"section": "14.4", "title": "Sending QUIC PMTU Probes", "anchor": "#name-sending-quic-pmtu-probes", "order": 114}
+{"section": "14.4.1", "title": "PMTU Probes Containing Source Connection ID", "anchor": "#name-pmtu-probes-containing-sour", "order": 115}
+{"section": "15", "title": "Versions", "anchor": "#name-versions", "order": 116}
+{"section": "16", "title": "Variable-Length Integer Encoding", "anchor": "#name-variable-length-integer-enc", "order": 117}
+{"section": "17", "title": "Packet Formats", "anchor": "#name-packet-formats", "order": 118}
+{"section": "17.1", "title": "Packet Number Encoding and Decoding", "anchor": "#name-packet-number-encoding-and-", "order": 119}
+{"section": "17.2", "title": "Long Header Packets", "anchor": "#name-long-header-packets", "order": 120}
+{"section": "17.2.1", "title": "Version Negotiation Packet", "anchor": "#name-version-negotiation-packet", "order": 121}
+{"section": "17.2.2", "title": "Initial Packet", "anchor": "#name-initial-packet", "order": 122}
+{"section": "17.2.2.1", "title": "Abandoning Initial Packets", "anchor": "#name-abandoning-initial-packets", "order": 123}
+{"section": "17.2.3", "title": "0-RTT", "anchor": "#name-0-rtt", "order": 124}
+{"section": "17.2.4", "title": "Handshake Packet", "anchor": "#name-handshake-packet", "order": 125}
+{"section": "17.2.5", "title": "Retry Packet", "anchor": "#name-retry-packet", "order": 126}
+{"section": "17.2.5.1", "title": "Sending a Retry Packet", "anchor": "#name-sending-a-retry-packet", "order": 127}
+{"section": "17.2.5.2", "title": "Handling a Retry Packet", "anchor": "#name-handling-a-retry-packet", "order": 128}
+{"section": "17.2.5.3", "title": "Continuing a Handshake after Retry", "anchor": "#name-continuing-a-handshake-afte", "order": 129}
+{"section": "17.3", "title": "Short Header Packets", "anchor": "#name-short-header-packets", "order": 130}
+{"section": "17.3.1", "title": "1-RTT Packet", "anchor": "#name-1-rtt-packet", "order": 131}
+{"section": "17.4", "title": "Latency Spin Bit", "anchor": "#name-latency-spin-bit", "order": 132}
+{"section": "18", "title": "Transport Parameter Encoding", "anchor": "#name-transport-parameter-encodin", "order": 133}
+{"section": "18.1", "title": "Reserved Transport Parameters", "anchor": "#name-reserved-transport-paramete", "order": 134}
+{"section": "18.2", "title": "Transport Parameter Definitions", "anchor": "#name-transport-parameter-definit", "order": 135}
+{"section": "19", "title": "Frame Types and Formats", "anchor": "#name-frame-types-and-formats", "order": 136}
+{"section": "19.1", "title": "PADDING Frames", "anchor": "#name-padding-frames", "order": 137}
+{"section": "19.2", "title": "PING Frames", "anchor": "#name-ping-frames", "order": 138}
+{"section": "19.3", "title": "ACK Frames", "anchor": "#name-ack-frames", "order": 139}
+{"section": "19.3.1", "title": "ACK Ranges", "anchor": "#name-ack-ranges", "order": 140}
+{"section": "19.3.2", "title": "ECN Counts", "anchor": "#name-ecn-counts", "order": 141}
+{"section": "19.4", "title": "RESET_STREAM Frames", "anchor": "#name-reset_stream-frames", "order": 142}
+{"section": "19.5", "title": "STOP_SENDING Frames", "anchor": "#name-stop_sending-frames", "order": 143}
+{"section": "19.6", "title": "CRYPTO Frames", "anchor": "#name-crypto-frames", "order": 144}
+{"section": "19.7", "title": "NEW_TOKEN Frames", "anchor": "#name-new_token-frames", "order": 145}
+{"section": "19.8", "title": "STREAM Frames", "anchor": "#name-stream-frames", "order": 146}
+{"section": "19.9", "title": "MAX_DATA Frames", "anchor": "#name-max_data-frames", "order": 147}
+{"section": "19.10", "title": "MAX_STREAM_DATA Frames", "anchor": "#name-max_stream_data-frames", "order": 148}
+{"section": "19.11", "title": "MAX_STREAMS Frames", "anchor": "#name-max_streams-frames", "order": 149}
+{"section": "19.12", "title": "DATA_BLOCKED Frames", "anchor": "#name-data_blocked-frames", "order": 150}
+{"section": "19.13", "title": "STREAM_DATA_BLOCKED Frames", "anchor": "#name-stream_data_blocked-frames", "order": 151}
+{"section": "19.14", "title": "STREAMS_BLOCKED Frames", "anchor": "#name-streams_blocked-frames", "order": 152}
+{"section": "19.15", "title": "NEW_CONNECTION_ID Frames", "anchor": "#name-new_connection_id-frames", "order": 153}
+{"section": "19.16", "title": "RETIRE_CONNECTION_ID Frames", "anchor": "#name-retire_connection_id-frames", "order": 154}
+{"section": "19.17", "title": "PATH_CHALLENGE Frames", "anchor": "#name-path_challenge-frames", "order": 155}
+{"section": "19.18", "title": "PATH_RESPONSE Frames", "anchor": "#name-path_response-frames", "order": 156}
+{"section": "19.19", "title": "CONNECTION_CLOSE Frames", "anchor": "#name-connection_close-frames", "order": 157}
+{"section": "19.20", "title": "HANDSHAKE_DONE Frames", "anchor": "#name-handshake_done-frames", "order": 158}
+{"section": "19.21", "title": "Extension Frames", "anchor": "#name-extension-frames", "order": 159}
+{"section": "20", "title": "Error Codes", "anchor": "#name-error-codes", "order": 160}
+{"section": "20.1", "title": "Transport Error Codes", "anchor": "#name-transport-error-codes", "order": 161}
+{"section": "20.2", "title": "Application Protocol Error Codes", "anchor": "#name-application-protocol-error-", "order": 162}
+{"section": "21", "title": "Security Considerations", "anchor": "#name-security-considerations", "order": 163}
+{"section": "21.1", "title": "Overview of Security Properties", "anchor": "#name-overview-of-security-proper", "order": 164}
+{"section": "21.1.1", "title": "Handshake", "anchor": "#name-handshake", "order": 165}
+{"section": "21.1.1.1", "title": "Anti-Amplification", "anchor": "#name-anti-amplification", "order": 166}
+{"section": "21.1.1.2", "title": "Server-Side DoS", "anchor": "#name-server-side-dos", "order": 167}
+{"section": "21.1.1.3", "title": "On-Path Handshake Termination", "anchor": "#name-on-path-handshake-terminati", "order": 168}
+{"section": "21.1.1.4", "title": "Parameter Negotiation", "anchor": "#name-parameter-negotiation", "order": 169}
+{"section": "21.1.2", "title": "Protected Packets", "anchor": "#name-protected-packets-2", "order": 170}
+{"section": "21.1.3", "title": "Connection Migration", "anchor": "#name-connection-migration-2", "order": 171}
+{"section": "21.1.3.1", "title": "On-Path Active Attacks", "anchor": "#name-on-path-active-attacks", "order": 172}
+{"section": "21.1.3.2", "title": "Off-Path Active Attacks", "anchor": "#name-off-path-active-attacks", "order": 173}
+{"section": "21.1.3.3", "title": "Limited On-Path Active Attacks", "anchor": "#name-limited-on-path-active-atta", "order": 174}
+{"section": "21.2", "title": "Handshake Denial of Service", "anchor": "#name-handshake-denial-of-service", "order": 175}
+{"section": "21.3", "title": "Amplification Attack", "anchor": "#name-amplification-attack", "order": 176}
+{"section": "21.4", "title": "Optimistic ACK Attack", "anchor": "#name-optimistic-ack-attack", "order": 177}
+{"section": "21.5", "title": "Request Forgery Attacks", "anchor": "#name-request-forgery-attacks", "order": 178}
+{"section": "21.5.1", "title": "Control Options for Endpoints", "anchor": "#name-control-options-for-endpoin", "order": 179}
+{"section": "21.5.2", "title": "Request Forgery with Client Initial Packets", "anchor": "#name-request-forgery-with-client", "order": 180}
+{"section": "21.5.3", "title": "Request Forgery with Preferred Addresses", "anchor": "#name-request-forgery-with-prefer", "order": 181}
+{"section": "21.5.4", "title": "Request Forgery with Spoofed Migration", "anchor": "#name-request-forgery-with-spoofe", "order": 182}
+{"section": "21.5.5", "title": "Request Forgery with Version Negotiation", "anchor": "#name-request-forgery-with-versio", "order": 183}
+{"section": "21.5.6", "title": "Generic Request Forgery Countermeasures", "anchor": "#name-generic-request-forgery-cou", "order": 184}
+{"section": "21.6", "title": "Slowloris Attacks", "anchor": "#name-slowloris-attacks", "order": 185}
+{"section": "21.7", "title": "Stream Fragmentation and Reassembly Attacks", "anchor": "#name-stream-fragmentation-and-re", "order": 186}
+{"section": "21.8", "title": "Stream Commitment Attack", "anchor": "#name-stream-commitment-attack", "order": 187}
+{"section": "21.9", "title": "Peer Denial of Service", "anchor": "#name-peer-denial-of-service", "order": 188}
+{"section": "21.10", "title": "Explicit Congestion Notification Attacks", "anchor": "#name-explicit-congestion-notifica", "order": 189}
+{"section": "21.11", "title": "Stateless Reset Oracle", "anchor": "#name-stateless-reset-oracle", "order": 190}
+{"section": "21.12", "title": "Version Downgrade", "anchor": "#name-version-downgrade", "order": 191}
+{"section": "21.13", "title": "Targeted Attacks by Routing", "anchor": "#name-targeted-attacks-by-routing", "order": 192}
+{"section": "21.14", "title": "Traffic Analysis", "anchor": "#name-traffic-analysis", "order": 193}
+{"section": "22", "title": "IANA Considerations", "anchor": "#name-iana-considerations", "order": 194}
+{"section": "22.1", "title": "Registration Policies for QUIC Registries", "anchor": "#name-registration-policies-for-q", "order": 195}
+{"section": "22.1.1", "title": "Provisional Registrations", "anchor": "#name-provisional-registrations", "order": 196}
+{"section": "22.1.2", "title": "Selecting Codepoints", "anchor": "#name-selecting-codepoints", "order": 197}
+{"section": "22.1.3", "title": "Reclaiming Provisional Codepoints", "anchor": "#name-reclaiming-provisional-code", "order": 198}
+{"section": "22.1.4", "title": "Permanent Registrations", "anchor": "#name-permanent-registrations", "order": 199}
+{"section": "22.2", "title": "QUIC Versions Registry", "anchor": "#name-quic-versions-registry", "order": 200}
+{"section": "22.3", "title": "QUIC Transport Parameters Registry", "anchor": "#name-quic-transport-parameters-r", "order": 201}
+{"section": "22.4", "title": "QUIC Frame Types Registry", "anchor": "#name-quic-frame-types-registry", "order": 202}
+{"section": "22.5", "title": "QUIC Transport Error Codes Registry", "anchor": "#name-quic-transport-error-codes-", "order": 203}
+{"section": "23", "title": "References", "anchor": "#name-references", "order": 204}
+{"section": "23.1", "title": "Normative References", "anchor": "#name-normative-references", "order": 205}
+{"section": "23.2", "title": "Informative References", "anchor": "#name-informative-references", "order": 206}
